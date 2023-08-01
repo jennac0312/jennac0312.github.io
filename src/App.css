@@ -1,3 +1,139 @@
+*{
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+#root{
+  height: 844px;
+  width: 390px;
+  /* border: 2px solid red; */
+}
+body{
+  /* background-color: aqua; */
+  background-color: wheat;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
 .App {
+  background-color: white;
+  /* border: 2px solid red; */
+  height: 844px;
+  width: 390px;
+  overflow: scroll;
+  background-color: black;
+}
+
+.App > * {
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+/* GENERAL ------------------------------------------------------------ */
+.underline{
+  border-bottom: 4px solid skyblue;
+  padding-bottom: 4px;
+}
+
+.hover{
+  cursor: pointer;
+}
+.circle{
+  border: 2px solid skyblue;
+  border-radius: 50%;
+  background-color: skyblue;
+  height: 40px;
+  width: 40px;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 7%;
+  right: 3%;
+}
+
+/* LOADING ------------------------------------------------------------ */
+.loadingPage{
+  background-color: black;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loadingPage img{
+  /* border: 1px solid white; */
+  margin: auto;
+  /* zoom: 15% */
+  width: 100%;
+}
+
+/* HEADER --------------------------------------------------------------*/
+header{
+  border: 1px solid white;
+  /* height: 100px; */
+}
+
+header .top{
+  display: flex;
+}
+
+header .top > *{
+  /* width: 50%; */
+  border: 1px solid lime;
+}
+
+header .avatar{
+  border: 1px solid white;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  position: absolute;
+  margin: 5px 0 0 5px;
+}
+
+header .logo{
+  border: 1px solid lime;
+  height: 40px;
+  margin: 3px auto;
+}
+
+header .bottom{
+  display: flex;
+  justify-content: space-around;
+}
+
+/* FOOTER ------------------------------------------------------------- */
+footer{
+  border: 1px solid orange;
+  display: flex;
+  position: absolute;
+  top: 800px;
+  width: 100%;
+  /* background-color: orange; */
+}
+
+footer p{
+  border: 1px solid white;
+  font-size: 30px;
+  margin: 0 17.5px;
+}
+
+footer p:hover{
+  cursor: pointer;
+}
+
+
+/* FEED */
+.feedContainer{
+  border: 1px solid blue;
+}
+
+.feedItem{
+  border: 1px solid lime;
+  height: 300px;
   text-align: center;
 }
