@@ -108,25 +108,17 @@ header .avatar{
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  position: absolute;
+  /* position: absolute; */
   margin: 5px 0 0 5px;
+}
+header .filler {
+  width: 35px;
 }
 
 header .logo{
   border: 1px solid lime;
   height: 40px;
   margin: 3px auto;
-}
-
-header .bottom{
-  display: flex;
-  justify-content: space-around;
-}
-
-header .bottom p{
-  color: gray;
-  font-weight: bold;
-  font-size: .9em;
 }
 
 /* FOOTER ------------------------------------------------------------- */
@@ -266,6 +258,17 @@ footer p:hover{
   /* flex-shrink: 3; */
 }
 
+.homePage .bottom{
+  display: flex;
+  justify-content: space-around;
+}
+
+.homePage .bottom p{
+  color: gray;
+  font-weight: bold;
+  font-size: .9em;
+}
+
 
 /* FEED --------------------------------------------------------------- */
 .feedContainer{
@@ -378,3 +381,50 @@ footer p:hover{
   font-weight: bold;
   font-size: .8em;
 }
+
+/* SEARCH ----------------------------------------------------------------------------- */
+.searchPage header{
+  border: 1px solid red;
+}
+.searchPage header > *{
+  margin: 0 10px;
+}
+
+.searchPage header .top{
+  border: 1px solid orange;
+  justify-content: space-between;
+  /* width: 70%; */
+  /* margin-left: 50%; */
+  align-items: center;
+}
+.searchPage header .top{
+  font-size: 25px;
+}
+
+.searchPage header img {
+  /* left: 0; */
+}
+
+.searchPage input {
+  width: 75% !important;
+  background-color: rgb(34, 34, 36);
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  color: lightblue;
+}
+
+.searchPage .tabs{
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 10px;
+}
+.searchPage .tabs p{
+  color: gray !important;
+  font-weight: bold;
+  font-size: .8em;
+  padding-bottom: 5px;
+}
+
