@@ -58,6 +58,19 @@ body{
   right: 3%;
 }
 
+.bold{
+  font-weight: bold;
+}
+
+.grey{
+  color: grey;
+}
+
+hr{
+  background-color: lightslategray;
+  /* border: none; */
+}
+
 /* LOADING ------------------------------------------------------------ */
 .loadingPage{
   background-color: black;
@@ -137,6 +150,99 @@ footer p:hover{
   /* flex-grow: 5; */
 }
 
+.menuContainer > *{
+  margin: 0 10px;
+}
+
+.menuContainer .top{
+  border: 1px solid red;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuContainer img {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+}
+
+.switchAccounts{
+  font-size: 25px;
+}
+
+.menuContainer .name{
+  margin-bottom: -5px;
+}
+.menuContainer .atName{
+  font-size: .9em;
+}
+
+.menuContainer .bottom {
+  border: 1px solid orange;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  font-size: .8em;
+  margin-top: 10px;
+}
+
+.menuContainer nav {
+  border: 1px solid yellow;
+  margin: 20px 0;
+}
+
+.menuContainer nav p {
+  border: 1px solid lime;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+.menuContainer nav p:hover {
+  background-color: rgb(51, 51, 51);
+}
+.menuContainer .icon {
+  border: 1px solid red;
+  font-size: 20px;
+  margin-right: 15px;
+}
+.menuContainer .extra{
+  border: 1px solid purple;
+  margin-top: 20px;
+}
+.menuContainer .extra p {
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: .9em;
+}
+
+.menuContainer .tabs{
+  display: flex;
+  justify-content: flex-start !important;
+  align-items: center;
+  font-size: .8em;
+}
+.menuContainer .tabs:hover {
+  background-color: rgb(51, 51, 51);
+}
+
+.menuContainer .tabs .icon{
+  width: 30px;
+  margin-right: 10px;
+}
+
+.menuContainer .mode{
+  /* border: 1px solid red; */
+  position: absolute;
+  bottom: 1%;
+  font-size: 20px;
+  filter: invert(.5); 
+  /* made icons grey */
+}
 
 /* HOME --------------------------------------------------------------- */
 .homePage{
@@ -164,4 +270,31 @@ footer p:hover{
   height: 300px;
   width: 390px;
   text-align: center;
+}
+
+/* PROFILE --------------------------------------------------------------------------- */
+.profilePage header {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+  background-size: 100% 100%;
+}
+.profilePage header div {
+  margin: 10px 10px;
+}
+.profilePage header .right {
+  display: flex;
+}
+
+.profileInfo {
+  border: 1px solid white;
+}
+
+.profileInfo .top .avatar {
+  border: 3px solid white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
 }

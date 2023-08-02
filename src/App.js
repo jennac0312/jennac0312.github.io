@@ -23,6 +23,7 @@ function App() {
         <Route path='/communities' element={<Communities />}/>
         <Route path='/notifications' element={<Notifications />}/>
         <Route path='/messages' element={<DMs />}/>
+        <Route path='/profile' element={<Profile />}/>
       </Routes>
 
     </div>
