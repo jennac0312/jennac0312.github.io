@@ -40,7 +40,9 @@ body{
   padding-bottom: 4px;
   color: white !important;
 }
-
+.small{
+  font-size: .8em;
+}
 .hover{
   cursor: pointer;
 }
@@ -128,7 +130,7 @@ footer{
   position: absolute;
   top: 800px;
   width: 390px;
-  /* background-color: orange; */
+  background-color: rgba(0, 0, 0, 0.781);
   overflow: hidden;
 }
 
@@ -428,3 +430,61 @@ footer p:hover{
   padding-bottom: 5px;
 }
 
+.searchPage .video {
+  border: 1px solid lime;
+  height: 220px;
+  text-align: center;
+}
+
+.video-text{
+  position: absolute;
+  bottom: 65%;
+  left: 3%;
+}
+
+.trending{
+  border: 1px solid orange;
+  margin: 10px;
+}
+
+.trending .topic {
+  border: 1px solid blue;
+  margin: 10px 0;
+}
+
+.trending .top{
+  /* border: 1px solid green; */
+  margin-bottom: -8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trending .top .small{
+  font-size: .7em;
+}
+
+.stories {
+  border: 1px solid purple;
+}
+
+.stories h4, .stories p {
+  margin: 0 10px;
+}
+
+.storiesContainer{
+  border: 1px solid yellow;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.story {
+  border: 1px solid red;
+  border-radius: 15px;
+  height: 180px;
+  width: 130px;
+  flex-shrink: 0;
+  margin: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,7 +4,7 @@ import { AppContext } from '../contexts/app_context'
 const Header = ( {parent} ) => {
 
     let { showMenu, setShowMenu, activeUser } = useContext(AppContext)
-    console.log(activeUser)
+    // console.log(activeUser)
 
     const [ count, setCount ] = useState(0)
 
