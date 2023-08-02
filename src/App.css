@@ -38,6 +38,7 @@ body{
 .underline{
   border-bottom: 4px solid skyblue;
   padding-bottom: 4px;
+  color: white !important;
 }
 
 .hover{
@@ -120,6 +121,12 @@ header .logo{
 header .bottom{
   display: flex;
   justify-content: space-around;
+}
+
+header .bottom p{
+  color: gray;
+  font-weight: bold;
+  font-size: .9em;
 }
 
 /* FOOTER ------------------------------------------------------------- */
@@ -277,7 +284,7 @@ footer p:hover{
   border: 1px solid red;
   display: flex;
   justify-content: space-between;
-  height: 120px;
+  height: 100px;
   background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
   background-size: 100% 100%;
 }
@@ -285,16 +292,89 @@ footer p:hover{
   margin: 10px 10px;
 }
 .profilePage header .right {
+  border: 1px solid purple;
   display: flex;
 }
 
 .profileInfo {
   border: 1px solid white;
+  height: 200px;
 }
 
-.profileInfo .top .avatar {
+.profileInfo > * {
+  margin: 0 10px;
+}
+
+.profileInfo .top {
+  border: 1px solid pink;
+  /* height: 150px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 10px;
+}
+
+.profileInfo .top img {
   border: 3px solid white;
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
+  margin-top: -25px;
+  /* z-index: 2; */
+  /* margin-top: -10px; */
+}
+.profileInfo .top .edit{
+  background-color: transparent;
+  border: 1px solid gray;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+}
+.profileInfo .top .edit:hover{
+  background-color: rgb(51, 51, 51);
+}
+.profileInfo .name{
+  font-size: 1.2em;
+  margin-bottom: -3px;
+}
+
+.profileInfo .bio{
+  border: 1px solid skyblue;
+  margin: 10px 10px;
+  font-size: .9em;
+}
+
+.profileInfo .bottom .location{
+  border: 1px solid orange;
+  font-size: .8em;
+}
+
+.profileInfo .joined{
+  /* font-size: .8em; */
+  margin-left: 10px;
+}
+
+.profileInfo .bottom .follow{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  font-size: .8em;
+  margin-top: 10px;
+}
+
+.profileInfo .tabs {
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-bottom: thin solid grey;
+}
+
+.profileInfo .tabs p{
+  /* border: 1px solid lime; */
+  padding: 0 2px 7px 2px;
+  color: grey;
+  font-weight: bold;
+  font-size: .8em;
 }

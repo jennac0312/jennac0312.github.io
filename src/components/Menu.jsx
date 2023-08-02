@@ -2,17 +2,18 @@ import React, { useContext, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import { useNavigate } from 'react-router-dom'
 
-const Menu = () => {
+const Menu = ( { parent } ) => {
 
     const navigate = useNavigate()
 
-    let { showMenu, setShowMenu, lightMode, setLightMode } = useContext(AppContext)
+    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender } = useContext(AppContext)
 
     const [ showTools, setShowTools ] = useState(false)
     const [ showSettings, setShowSettings ] = useState(false)
 
     const handleClick = () => {
         setShowMenu(false)
+        setProfileRender(parent)
         navigate('/profile')
     }
 

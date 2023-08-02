@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className='homePage'>
 
-      { showMenu && <Menu /> }
+      { showMenu && <Menu parent="/home"/> }
 
       <div className='main'>
         <Header parent="home"/>
