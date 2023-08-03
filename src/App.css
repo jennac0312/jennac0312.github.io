@@ -39,6 +39,7 @@ body{
 /* GENERAL ------------------------------------------------------------ */
 .underline{
   border-bottom: 4px solid skyblue;
+  /* border-radius: -50px;  trying to round edges ...*/
   padding-bottom: 4px;
   color: white !important;
 }
@@ -700,7 +701,7 @@ main{
 
 /* NOTIFICATIONS */
 .notificationsPage{
-
+  display: flex;
 }
 .notificationsPage header{
   display: flex;
@@ -732,6 +733,12 @@ main{
 }
 
 /* MESSAGES DMS ------------------------------------------------------- */
+.dmPage{
+  display: flex;
+}
+.dmPage .menuContainer .mode {
+  margin-top: 273px;
+}
 .dmPage > *{
 }
 .dmPage header{
@@ -741,6 +748,15 @@ main{
   /* display: flex; */
   justify-content: space-between;
   align-items: center;
+}
+
+.dmPage header .top img {
+  border: 1px solid white;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  /* position: absolute; */
+  margin: 5px 0 0 5px;
 }
 
 .dmPage .gear {
@@ -764,9 +780,101 @@ main{
   align-self: center;
   /* border: 1px solid lime; */
   margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .dmPage main{
-  max-height: 718px;
+  max-height: 705px;
   margin: 0 10px;
+}
+
+.dmPage .message{
+  border: 1px solid skyblue;
+  margin: 15px 10px;
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  max-height: 70px;
+}
+.dmPage .message:hover{
+  background-color: rgba(51, 51, 51, 0.767);
+}
+
+.dmPage img {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.dmPage .name{
+  margin-right: 10px !important;
+}
+
+.dmPage .stack .top{
+  display: flex;
+}
+.dmPage .stack .top p{
+  /* border: 1px solid yellow; */
+  margin-right: 5px;
+}
+.dmPage .dot{
+  /* margin: 0 !important; */
+}
+
+/* MESSAGE ----------------------------------------------------------- */
+.message {
+
+}
+.message header > *{
+  margin: 0 10px;
+}
+.message header .top {
+  border: 1px solid pink;
+  justify-content: space-between !important;
+  align-items: center;
+  margin-top: 10px;
+}
+.message header .bottom {
+  border: 1px solid blue;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  text-align: center;
+  /* margin: auto; */
+}
+
+.message header img {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.message .icon {
+  font-size: 25px;
+  width: 35px;
+}
+
+.message main{
+  max-height: 670px;
+}
+.message .bubble{
+  border: 1px solid gray;
+  background-color: rgba(128, 128, 128, 0.288);
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border-bottom-left-radius: 0px ;
+  margin: 10px;
+}
+
+.message input{
+  width: 95% !important;
+  background-color: rgb(34, 34, 36);
+  border: none;
+  border-radius: 10px;
+  height: 32px;
+  text-align: center;
+  color: lightblue;
+  margin: 10px;
 }

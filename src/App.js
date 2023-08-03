@@ -11,9 +11,12 @@ import DMs from './pages/DMs'
 import Profile from './pages/Profile'
 import Searching from './pages/Searching';
 import Settings from './pages/Settings';
+import Message from './pages/Message';
 
 
 function App() {
+
+  let { clickedMessage } = useContext(AppContext)
 
   return (
     <div className="App">
@@ -28,6 +31,7 @@ function App() {
         <Route path='/notifications' element={<Notifications />}/>
         <Route path='/messages' element={<DMs />}/>
         <Route path='/profile' element={<Profile />}/>
+        <Route path={`/messages/${clickedMessage}`} element={<Message />}/>
       </Routes>
 
     </div>

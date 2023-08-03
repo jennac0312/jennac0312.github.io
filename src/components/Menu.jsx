@@ -6,7 +6,7 @@ const Menu = ( { parent } ) => {
 
     const navigate = useNavigate()
 
-    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender } = useContext(AppContext)
+    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender, handleSettingsClick } = useContext(AppContext)
 
     const [ showTools, setShowTools ] = useState(false)
     const [ showSettings, setShowSettings ] = useState(false)
@@ -59,7 +59,7 @@ const Menu = ( { parent } ) => {
         </p>
       { showSettings && 
           <>
-              <p className='tabs' onClick={() => navigate('/settings')}><span className="icon">⚙️</span> Settings and privacy</p>
+              <p className='tabs' onClick={() => handleSettingsClick(parent)}><span className="icon">⚙️</span> Settings and privacy</p>
               <p className='tabs'><span className="icon">❔</span> Help Center</p>
               <p className='tabs'><span className="icon">🛒</span> Purchases</p>
           </>

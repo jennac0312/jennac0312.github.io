@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = ( {parent} ) => {
 
-    let { showMenu, setShowMenu, activeUser } = useContext(AppContext)
+    let { showMenu, setShowMenu, activeUser, clickedMessage, handleSettingsClick } = useContext(AppContext)
     // console.log(activeUser)
 
     let navigate = useNavigate()
@@ -28,7 +28,7 @@ const Header = ( {parent} ) => {
               <div className="top">
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <input type="text" placeholder='🔍 Search Twitter' onClick={() => navigate('/searching')}/>
-                <p>⚙️</p>
+                <p onClick={() => handleSettingsClick('/search')}>⚙️</p>
               </div>
             </header>
           )
@@ -68,7 +68,7 @@ const Header = ( {parent} ) => {
             <header>
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Notifications</h3>
-                    <p className='gear'>⚙️</p>
+                    <p className='gear' onClick={() => handleSettingsClick('/notifications')}>⚙️</p>
             </header>
         )
     }
@@ -79,11 +79,26 @@ const Header = ( {parent} ) => {
               <div className="top">
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Messages</h3>
-                    <p className='gear' onClick={() => navigate('/settings')}>⚙️</p>
+                    <p className='gear' onClick={() => handleSettingsClick('/messages')}>⚙️</p>
               </div>
               <div className="bottom">
               <input type="text" placeholder='🔍 Search Direct Messages' className='hover'/>
               </div>
+            </header>
+        )
+    }
+
+    const message = () => {
+        return (
+            <header>
+                <div className="top">
+                    <p className="back icon">⬅️</p>
+                    <img src="" alt=""/>
+                    <p className='info icon' onClick={() => navigate('/settings')}>💡</p>
+                </div>
+                <div className="bottom">
+                    <h4>user name {clickedMessage}</h4>
+                </div>
             </header>
         )
     }
@@ -95,6 +110,7 @@ const Header = ( {parent} ) => {
     if( parent === "communities" ) return communities()
     if( parent === "notifs" ) return notifs()
     if( parent === "dms" ) return dms()
+    if( parent === "message" ) return message()
 }
 
 export default Header

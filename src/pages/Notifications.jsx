@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Menu from '../components/Menu'
+import { AppContext } from '../contexts/app_context'
 
 const Notifications = () => {
 
+  let { showMenu } = useContext(AppContext)
   const [ count, setCount ] = useState(0)
 
   return (
     <div className='notificationsPage'>
+
+    { showMenu && <Menu parent="/notifications"/> }
+
       <div>
       <Header parent="notifs" />
 
