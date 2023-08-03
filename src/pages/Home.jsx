@@ -18,17 +18,21 @@ const Home = () => {
 
       { showMenu && <Menu parent="/home"/> }
 
-      <div className='main'>
+      <div>
         <Header parent="home"/>
-        <div className="bottom">
-                <p onClick={() => setCount(0)} className={count === 0 && 'underline'}>For You</p>
-                <p onClick={() => setCount(1)} className={count === 1 && 'underline'}>Following</p>
-        </div>
-        { !showMenu && <Circle symbol="plus"/>}
-        <Feed />
-        <Footer />
-      </div>
+        
+        <main>
+          <div className="bottom">
+                  <p onClick={() => setCount(0)} className={count === 0 && 'underline'}>For You</p>
+                  <p onClick={() => setCount(1)} className={count === 1 && 'underline'}>Following</p>
+          </div>
+          { !showMenu && <Circle symbol="plus"/>}
+          <Feed />
+        </main>
 
+        <Footer />
+
+      </div>
     </div>
   )
 }

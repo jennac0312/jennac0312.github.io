@@ -1,10 +1,14 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const Communities = () => {
   return (
     <div>
-      <h1>communities</h1>
+      <Header parent="communities" />
+      <main>
+        
+      </main>
       <Footer />
     </div>
   )

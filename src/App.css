@@ -127,9 +127,11 @@ header .logo{
 footer{
   border: 1px solid orange;
   display: flex;
-  position: absolute;
+  z-index: 20;
+  /* position: absolute; */
   top: 800px;
-  width: 390px;
+  min-width: 390px;
+  margin-top: -95px;
   background-color: rgba(0, 0, 0, 0.781);
   overflow: hidden;
 }
@@ -238,11 +240,10 @@ footer p:hover{
 
 .menuContainer .mode{
   /* border: 1px solid red; */
-  position: absolute;
-  bottom: 1%;
+  /* position: absolute; */
+  margin-top: 290px;
   font-size: 20px;
-  filter: invert(.5); 
-  /* made icons grey */
+  filter: invert(.5); /* made icons grey */
 }
 
 /* HOME --------------------------------------------------------------- */
@@ -252,9 +253,12 @@ footer p:hover{
   /* overflow-x: hidden; */
 }
 
-.main{
-  width: 390px;
+main{
+  border: 4px solid red;
+  min-width: 390px;
+  height: 835px;
   /* flex-shrink: 3; */
+  overflow-y: scroll;
 }
 .main *{
   /* flex-shrink: 3; */
@@ -437,9 +441,13 @@ footer p:hover{
 }
 
 .video-text{
-  position: absolute;
+  /* position: absolute;
   bottom: 65%;
-  left: 3%;
+  left: 3%; */
+  border: 1px solid red;
+  width: fit-content;
+  margin-top: 170px;
+  margin-left: 10px;
 }
 
 .trending{

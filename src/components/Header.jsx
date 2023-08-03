@@ -32,9 +32,25 @@ const Header = ( {parent} ) => {
           )
     }
 
+    const communities = () => {
+        return (
+            <header>
+              <div className="top">
+                <img src={activeUser?.avatar} alt="" className='avatar' onClick={() => setShowMenu(!showMenu)}/>
+                <h3>Communities</h3>
+                <div className="right">
+                    <p>🔍</p>
+                    <p>🧑‍🤝‍🧑</p>
+                </div>
+              </div>
+            </header>
+        )
+    }
+
 
     if( parent === "home" ) return home()
     if( parent === "search" ) return search()
+    if( parent === "communities" ) return communities()
 }
 
 export default Header
