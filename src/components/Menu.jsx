@@ -21,7 +21,7 @@ const Menu = ( { parent } ) => {
     <div className='menuContainer'>
         {/* <h1>menu</h1> */}
         <div className="top">
-        <img src="" alt="" srcset="" className='avatar' onClick={() => handleClick()}/>
+        <img src="" alt="" className='avatar' onClick={() => handleClick()}/>
         <p className='switchAccounts'>👽</p>
         </div>
 

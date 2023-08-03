@@ -12,7 +12,12 @@ const Profile = ( ) => {
   const [ count, setCount ] = useState(0)
   const navigate = useNavigate()
 
-  console.log(profileRender)
+  console.log('PROFILE RENDERER: ',profileRender)
+
+  const handleClick = () => {
+    console.log('RETURN TO:', profileRender)
+    navigate(profileRender)
+  }
 
   return (
     <>
@@ -20,7 +25,7 @@ const Profile = ( ) => {
         <header>
           {/* background image */}
           <div className="left">
-            <p className="back" onClick={() => navigate(profileRender)}>↩️</p>
+            <p className="back" onClick={() => handleClick()}>↩️</p>
           </div>
 
           <div className="right">

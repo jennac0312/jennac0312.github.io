@@ -9,7 +9,7 @@ const Settings = () => {
     const navigate = useNavigate()
 
     const handleClick = (to) => {
-        console.log(to)
+        console.log('RETURN TO SETTINGS RENDERER: ',to)
         setShowMenu(false)
         navigate(to)
     }
@@ -31,7 +31,7 @@ const Settings = () => {
 
         { settings.map((setting, index) => {
             return (
-                <div className="settingContainer">
+                <div className="settingContainer" key={index}>
                     <p className='logo'>{setting.logo}</p>
 
                     <div className="middle">

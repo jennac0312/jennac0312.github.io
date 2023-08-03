@@ -8,8 +8,9 @@ import Menu from '../components/Menu'
 
 const Home = () => {
 
-  let { showMenu } = useContext(AppContext)
+  let { showMenu, activeUser, users } = useContext(AppContext)
   console.log(showMenu)
+  console.log(activeUser)
 
   const [ count, setCount ] = useState(0)
 
@@ -20,7 +21,7 @@ const Home = () => {
 
       <div>
         <Header parent="home"/>
-        
+
         <main>
           <div className="bottom">
                   <p onClick={() => setCount(0)} className={count === 0 && 'underline'}>For You</p>

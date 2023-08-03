@@ -12,29 +12,25 @@ const AppContextProvider = (props) => {
     const [ settingsRender, setSettingsRender ] = useState("") //for back button in settings
     const [ lightMode, setLightMode ] = useState(false) // maybe
 
-    const [ robots, setRobots ] = useState([])
-    const [ activeUser, setActiveUser ] = useState(robots[3])
+    const [ users, setUsers ] = useState([])
+    const [ activeUser, setActiveUser ] = useState(users[3])
     const [ clickedProfile, setClickedProfile ] = useState({})
     const [ search, setSearch ] = useState("") // for searching page
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
 
     // API
-    const fetchRobots = async () => {
-        const response = await axios.get('https://random-data-api.com/api/v2/users?size=25&is_xml=true')
-        console.log(response.data)
-        setRobots(response.data)
+    const fetchUsers = async () => {
+        const response = await axios.get('https://dummyjson.com/users?limit=100')
+        console.log('USERS FETCH DATA:',response.data.users)
+        setUsers(response.data.users)
 
+        setActiveUser(response.data.users[3]) //since users state has no value yet
         return response.data
     }
 
     useEffect(() => {
-        fetchRobots()
-        console.log('ROBOTS', robots)
-        setActiveUser(robots[3])
-        return () => {
-            setRobots(fetchRobots())
-            // console.log(robots)
-        }
+        fetchUsers()
+        console.log('USERS', users)
     }, [])
 
     // functions
@@ -48,7 +44,7 @@ const AppContextProvider = (props) => {
         <AppContext.Provider value={{
             // pass state here
             showMenu, setShowMenu, lightMode, setLightMode, profileRender, setProfileRender,
-            robots, activeUser, clickedProfile, setClickedProfile,
+            users, activeUser, clickedProfile, setClickedProfile,
             search, setSearch,
             clickedMessage, setClickedMessage,
 

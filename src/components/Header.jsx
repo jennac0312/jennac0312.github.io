@@ -15,7 +15,7 @@ const Header = ( {parent} ) => {
           <header>
             <div className="top">
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
-                <img src="https://cdna.artstation.com/p/assets/images/images/031/538/850/original/petro-kosariekov-portal-gun-rick-and-morty2-2.gif?1603902186" alt="logo" srcset="" className='logo'/>
+                <img src="https://cdna.artstation.com/p/assets/images/images/031/538/850/original/petro-kosariekov-portal-gun-rick-and-morty2-2.gif?1603902186" alt="logo" className='logo'/>
                 <img src="" alt="" className='filler'/>
             </div>
           </header>
@@ -92,9 +92,10 @@ const Header = ( {parent} ) => {
         return (
             <header>
                 <div className="top">
-                    <p className="back icon">⬅️</p>
+                    <p className="back icon" onClick={() => navigate('/messages')}>⬅️</p>
                     <img src="" alt=""/>
-                    <p className='info icon' onClick={() => navigate('/settings')}>💡</p>
+                    <p className='info icon' >💡</p>
+                    {/* onClick={() => navigate('/settings')} */}
                 </div>
                 <div className="bottom">
                     <h4>user name {clickedMessage}</h4>
