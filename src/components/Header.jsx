@@ -68,7 +68,7 @@ const Header = ( {parent} ) => {
             <header>
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Notifications</h3>
-                    <p>⚙️</p>
+                    <p className='gear'>⚙️</p>
             </header>
         )
     }
@@ -79,7 +79,10 @@ const Header = ( {parent} ) => {
               <div className="top">
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Messages</h3>
-                    <p>⚙️</p>
+                    <p className='gear' onClick={() => navigate('/settings')}>⚙️</p>
+              </div>
+              <div className="bottom">
+              <input type="text" placeholder='🔍 Search Direct Messages' className='hover'/>
               </div>
             </header>
         )

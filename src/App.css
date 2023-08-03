@@ -273,6 +273,9 @@ footer p:hover{
   width: 390px;
   /* overflow-x: hidden; */
 }
+.homePage header > * {
+  margin: 0 10px;
+}
 
 main{
   border: 1px solid red;
@@ -659,6 +662,10 @@ main{
   display: flex;
 }
 
+.communities header > * {
+  margin: 0 10px;
+}
+
 .communities header .top {
   display: flex;
   justify-content: space-between;
@@ -701,6 +708,14 @@ main{
   align-items: center;
 }
 
+.notificationsPage header > * {
+  margin: 0 10px;
+}
+
+.notificationsPage header .gear{
+  font-size: 25px;
+}
+
 .notificationsPage .tabs{
   border: 1px solid orange;
   display: flex;
@@ -712,7 +727,46 @@ main{
 
 .notificationsPage .tabs > *{
   color: gray;
+  width: 65px;
+  text-align: center;
 }
 
-
 /* MESSAGES DMS ------------------------------------------------------- */
+.dmPage > *{
+}
+.dmPage header{
+  margin: 0 10px;
+}
+.dmPage header .top{
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dmPage .gear {
+  font-size: 25px;
+  /* gear */
+}
+
+.dmPage .bottom{
+  display: flex;
+  justify-content: center;
+}
+
+.dmPage input {
+  width: 95%!important;
+  background-color: rgb(34, 34, 36);
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  color: lightblue;
+  align-self: center;
+  /* border: 1px solid lime; */
+  margin-top: 5px;
+}
+
+.dmPage main{
+  max-height: 718px;
+  margin: 0 10px;
+}
