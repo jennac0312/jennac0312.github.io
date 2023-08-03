@@ -1,11 +1,17 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const DMs = () => {
   return (
     <div className='dmPage'>
-      <h1>dms </h1>
+      <div>
+      <Header parent="dms" />
+      <main>
+        
+      </main>
       <Footer />
+    </div>
     </div>
   )
 }

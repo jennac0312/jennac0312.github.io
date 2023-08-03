@@ -11,6 +11,8 @@
 body{
   /* background-color: aqua; */
   background-color: wheat;
+  max-height: 844px;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar{
@@ -94,6 +96,9 @@ header{
   border: 1px solid white;
   /* height: 100px; */
   width: 390px;
+  min-height: 46px !important;
+  /* display: flex !important;
+  justify-content: space-between !important; */
 }
 
 header .top{
@@ -127,13 +132,15 @@ header .logo{
 footer{
   border: 1px solid orange;
   display: flex;
-  z-index: 20;
+  /* z-index: ; */
   /* position: absolute; */
   top: 800px;
   min-width: 390px;
-  margin-top: -95px;
-  background-color: rgba(0, 0, 0, 0.781);
+  /* margin-top: -82px; */
+  /* background-color: rgba(0, 0, 0, 0.938) !important; */
+  background-color: white;
   overflow: hidden;
+  max-height: 45px;
 }
 
 footer p{
@@ -254,9 +261,10 @@ footer p:hover{
 }
 
 main{
-  border: 4px solid red;
-  min-width: 390px;
-  height: 835px;
+  border: 1px solid red;
+  max-width: 390px;
+  height: 749px;
+  /* padding-bottom: 50px; */
   /* flex-shrink: 3; */
   overflow-y: scroll;
 }
@@ -289,6 +297,12 @@ main{
 }
 
 /* PROFILE --------------------------------------------------------------------------- */
+.profilePage{
+  border: 1px solid red;
+  height: 795px !important;
+  overflow-y: scroll;
+}
+
 .profilePage header {
   border: 1px solid red;
   display: flex;
@@ -388,7 +402,18 @@ main{
   font-size: .8em;
 }
 
+.profilePage .feedContainer{
+  margin-top: 36px !important;
+}
+
+.profilePage footer{
+  margin-top: -900px !important;
+}
+
 /* SEARCH ----------------------------------------------------------------------------- */
+.searchPage{
+  display: flex;
+}
 .searchPage header{
   border: 1px solid red;
 }
@@ -495,4 +520,61 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* SEARCHING ---------------------------------------------------------- */
+.searchingPage > * {
+  /* margin: 0 10px; */
+}
+
+.searchingPage header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchingPage header > * , .searchingPage main > *{
+  margin: 0 10px;
+}
+
+.searchingPage input {
+  width: 370px !important;
+  background-color: rgb(34, 34, 36);
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  color: lightblue;
+}
+
+.searchingPage .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchingPage .recents {
+  border: 1px solid lime;
+  display: flex;
+  height: 90px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin: 10px 0;
+}
+
+.searchingPage .recents div {
+  border: 1px solid orange;
+  width: 70px;
+  flex-shrink: 0;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.searchingPage .recents div img {
+  border: 1px solid white;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+.searchingPage .recents div .username {
+  margin-top: -5px;
 }

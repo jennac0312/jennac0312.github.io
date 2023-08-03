@@ -9,6 +9,7 @@ import Notifications from './pages/Notifications'
 import Communities from './pages/Communities'
 import DMs from './pages/DMs'
 import Profile from './pages/Profile'
+import Searching from './pages/Searching';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Loading />}/>
         <Route path='/home' element={<Home />}/>
         <Route path='/search' element={<Search />}/>
+        <Route path='/searching' element={<Searching />}/>
         <Route path='/communities' element={<Communities />}/>
         <Route path='/notifications' element={<Notifications />}/>
         <Route path='/messages' element={<DMs />}/>

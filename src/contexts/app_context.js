@@ -12,6 +12,7 @@ const AppContextProvider = (props) => {
     const [ robots, setRobots ] = useState([])
     const [ activeUser, setActiveUser ] = useState(robots[3])
     const [ clickedProfile, setClickedProfile ] = useState({})
+    const [ search, setSearch ] = useState("") // for searching page
 
     // API
     const fetchRobots = async () => {
@@ -36,7 +37,8 @@ const AppContextProvider = (props) => {
         <AppContext.Provider value={{
             // pass state here
             showMenu, setShowMenu, lightMode, setLightMode, profileRender, setProfileRender,
-            robots, activeUser, clickedProfile, setClickedProfile
+            robots, activeUser, clickedProfile, setClickedProfile,
+            search, setSearch
         }}>
 
             {props.children}
