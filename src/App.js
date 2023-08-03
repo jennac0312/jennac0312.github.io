@@ -10,6 +10,7 @@ import Communities from './pages/Communities'
 import DMs from './pages/DMs'
 import Profile from './pages/Profile'
 import Searching from './pages/Searching';
+import Settings from './pages/Settings';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Loading />}/>
         <Route path='/home' element={<Home />}/>
+        <Route path='/settings' element={<Settings />}/>
         <Route path='/search' element={<Search />}/>
         <Route path='/searching' element={<Searching />}/>
         <Route path='/communities' element={<Communities />}/>

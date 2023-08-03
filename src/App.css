@@ -70,6 +70,13 @@ body{
 .grey{
   color: grey;
 }
+.black {
+  color: black;
+}
+
+.invisible {
+  visibility: hidden;
+}
 
 hr{
   background-color: lightslategray;
@@ -95,7 +102,7 @@ hr{
 header{
   border: 1px solid white;
   /* height: 100px; */
-  width: 390px;
+  max-width: 390px;
   min-height: 46px !important;
   /* display: flex !important;
   justify-content: space-between !important; */
@@ -144,10 +151,17 @@ footer{
 }
 
 footer p{
-  border: 1px solid white;
+  border: 1px solid black;
   font-size: 30px;
   margin: 0 17.5px;
+  height: 100%;
 }
+
+footer .mail{
+  /* margin-top: -2px; */
+  /* padding-bottom: 2px; */
+}
+
 
 footer p:hover{
   cursor: pointer;
@@ -410,7 +424,7 @@ main{
   margin-top: -900px !important;
 }
 
-/* SEARCH ----------------------------------------------------------------------------- */
+/* SEARCH ------------------------------------------------------------------------ */
 .searchPage{
   display: flex;
 }
@@ -578,3 +592,127 @@ main{
 .searchingPage .recents div .username {
   margin-top: -5px;
 }
+
+/* SETTINGS ---------------------------------------------------------- */
+.settings {
+  border: 1px solid red;
+  max-height: 844px;
+  max-width: 390px;
+}
+
+.settings > * {
+  margin: 0 10px;
+}
+
+.settings .top {
+  border: 1px solid lime;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings .username{
+  margin-top: -5px;
+}
+.settings .bottom {
+  /* border: 1px solid yellow; */
+}
+
+.settings input {
+  width: 100%!important;
+  background-color: rgb(34, 34, 36);
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  color: lightblue;
+  align-self: center;
+  /* border: 1px solid lime; */
+  margin-top: 5px;
+}
+
+.settings .settingContainer{
+  border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.settingContainer .logo{
+  /* border: 1px solid skyblue; */
+  width: 20px;
+  text-align: center;
+}
+
+.settingContainer .middle{
+  /* border: 1px solid lime; */
+  width: 80%;
+  font-size: .9em;
+}
+
+
+/* COMMUNITIES ------------------------------------------------------ */
+.communities{
+  display: flex;
+}
+
+.communities header .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.communities header .right{
+  display: flex;
+}
+.communities main {
+  margin: 0 10px;
+  max-height: 709px !important;
+}
+.communities .flex{
+  border: 1px solid lime;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.community {
+  border: 1px solid skyblue;
+  display: flex;
+  margin-top: 10px;
+}
+
+.community img{
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+}
+
+/* NOTIFICATIONS */
+.notificationsPage{
+
+}
+.notificationsPage header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notificationsPage .tabs{
+  border: 1px solid orange;
+  display: flex;
+  justify-content: space-around;
+  /* margin-top: 5px; */
+  font-weight: bold;
+  font-size: .9em;
+}
+
+.notificationsPage .tabs > *{
+  color: gray;
+}
+
+
+/* MESSAGES DMS ------------------------------------------------------- */

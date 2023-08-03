@@ -59,7 +59,7 @@ const Menu = ( { parent } ) => {
         </p>
       { showSettings && 
           <>
-              <p className='tabs'><span className="icon">⚙️</span> Settings and privacy</p>
+              <p className='tabs' onClick={() => navigate('/settings')}><span className="icon">⚙️</span> Settings and privacy</p>
               <p className='tabs'><span className="icon">❔</span> Help Center</p>
               <p className='tabs'><span className="icon">🛒</span> Purchases</p>
           </>

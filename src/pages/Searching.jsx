@@ -23,7 +23,7 @@ const Searching = () => {
                     <div className="" key={index}>
                         <img src="" alt="" />
                         <p>name</p>
-                        <p className='grey username'>@{element}</p>
+                        <p className='grey small username'>@{element}</p>
                     </div>
                 )
             })}

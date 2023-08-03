@@ -21,7 +21,7 @@ const Footer = () => {
         </Link>
 
         <Link to="/messages">
-            <p>✉️</p>
+            <p className='mail'>✉️</p>
         </Link>
     </footer>
   )

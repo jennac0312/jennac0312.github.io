@@ -46,28 +46,33 @@ const Header = ( {parent} ) => {
     const communities = () => {
         return (
             <header>
-              <div className="top">
-                <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
-                <h3>Communities</h3>
-                <div className="right">
-                    <p>🔍</p>
-                    <p>🧑‍🤝‍🧑</p>
+                <div className="top">
+                    <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
+                    <h3>Communities</h3>
+                    <div className="right">
+                        <p>🔍</p>
+                        <p>🧑‍🤝‍🧑</p>
+                    </div>
                 </div>
-              </div>
+                <div className="flex">
+                    <h4>Discover new Communities</h4>
+                    <p>⋯</p>
+                </div>
+                
             </header>
         )
     }
+
     const notifs = () => {
         return (
             <header>
-              <div className="top">
                 <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Notifications</h3>
                     <p>⚙️</p>
-              </div>
             </header>
         )
     }
+    
     const dms = () => {
         return (
             <header>
