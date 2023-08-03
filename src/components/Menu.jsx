@@ -6,7 +6,7 @@ const Menu = ( { parent } ) => {
 
     const navigate = useNavigate()
 
-    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender, handleSettingsClick } = useContext(AppContext)
+    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender, handleSettingsClick, activeUser } = useContext(AppContext)
 
     const [ showTools, setShowTools ] = useState(false)
     const [ showSettings, setShowSettings ] = useState(false)
@@ -21,20 +21,20 @@ const Menu = ( { parent } ) => {
     <div className='menuContainer'>
         {/* <h1>menu</h1> */}
         <div className="top">
-        <img src="" alt="" className='avatar' onClick={() => handleClick()}/>
+        <img src={activeUser?.image} alt="" className='avatar' onClick={() => handleClick()}/>
         <p className='switchAccounts'>👽</p>
         </div>
 
-        <p className='bold name'>user name</p>
-        <p className='grey atName'>@username</p>
+        <p className='bold name'>{activeUser.firstName} {activeUser.lastName}</p>
+        <p className='grey atName'>@{activeUser.username}</p>
 
         <div className="bottom">
-            <p>220 <span className='grey'>Following</span></p>
-            <p>220 <span className='grey'>Followers</span></p>
+            <p>{ Math.ceil(activeUser.weight) } <span className='grey'>Following</span></p>
+            <p>{ Math.ceil(activeUser.height) } <span className='grey'>Followers</span></p>
         </div>
       
       <nav>
-        <p><span className='icon'>👤</span><span className='bold'>Profile</span></p>
+        <p onClick={() => handleClick()}><span className='icon'>👤</span><span className='bold'>Profile</span></p>
         <p><span className='icon'>🫐</span><span className='bold'>Twitter Blue</span></p>
         <p><span className='icon'>🔖</span><span className='bold'>Bookmarks</span></p>
         <p><span className='icon'>📃</span><span className='bold'>Lists</span></p>

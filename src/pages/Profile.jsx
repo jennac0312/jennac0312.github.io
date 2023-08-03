@@ -7,7 +7,7 @@ import Feed from '../components/Feed'
 
 const Profile = ( ) => {
 
-  let { profileRender } = useContext(AppContext)
+  let { profileRender, activeUser } = useContext(AppContext)
 
   const [ count, setCount ] = useState(0)
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ const Profile = ( ) => {
         <header>
           {/* background image */}
           <div className="left">
-            <p className="back" onClick={() => handleClick()}>↩️</p>
+            <p className="back" onClick={() => handleClick() }>↩️</p>
           </div>
 
           <div className="right">
@@ -36,20 +36,20 @@ const Profile = ( ) => {
 
         <div className="profileInfo">
           <div className="top">
-            <img src="" alt="" className='avatar'/>
+            <img src={activeUser.image} alt="" className='avatar'/>
             <button className="edit bold">Edit profile</button>
           </div>
 
-          <p className='bold name'>user name</p>
-          <p className='grey'>@username</p>
+          <p className='bold name'>{activeUser.firstName} {activeUser.lastName}</p>
+          <p className='grey '>@{activeUser.username}</p>
           <p className="bio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, inventore.</p>
 
           <div className="bottom">
-            <p className='location'><span>🌎 location</span> <span className="joined grey">📆 Joined September 2012</span></p>
+            <p className='location'><span>🌎 {activeUser.address.city}, {activeUser.address.state}</span> <span className="joined grey">📆 Joined September 2012 {activeUser.birthDate}</span></p>
           
             <div className="follow">
-                <p><span className="bold">220</span> Following</p>
-                <p><span className="bold">220</span> Followers</p>
+                <p><span className="bold">{Math.ceil(activeUser.weight)}</span> Following</p>
+                <p><span className="bold">{Math.ceil(activeUser.height)}</span> Followers</p>
             </div>
 
             <div className="tabs">

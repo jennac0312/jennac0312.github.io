@@ -84,6 +84,12 @@ hr{
   /* border: none; */
 }
 
+/* ACTIVE USER -------------------------------------------------------- */
+.active-user-avatar{
+  background-image: url('https://m.media-amazon.com/images/M/MV5BMjI4NjMzNzkzNl5BMl5BanBnXkFtZTcwMDM2MDIyNw@@._V1_.jpg');
+  background-size: 100% 100%;
+}
+
 /* LOADING ------------------------------------------------------------ */
 .loadingPage{
   background-color: black;
@@ -120,6 +126,8 @@ header .top > *{
 
 header .avatar{
   border: 1px solid white;
+  background-image: url('https://m.media-amazon.com/images/M/MV5BMjI4NjMzNzkzNl5BMl5BanBnXkFtZTcwMDM2MDIyNw@@._V1_.jpg');
+  background-size: 100% 100%;
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -186,8 +194,10 @@ footer p:hover{
   justify-content: space-between;
 }
 
-.menuContainer img {
+.menuContainer .avatar {
   border: 1px solid white;
+  background-image: url('https://m.media-amazon.com/images/M/MV5BMjI4NjMzNzkzNl5BMl5BanBnXkFtZTcwMDM2MDIyNw@@._V1_.jpg') !important;
+  background-size: 100% 100%;
   border-radius: 50%;
   height: 35px;
   width: 35px;
@@ -328,6 +338,8 @@ main{
   height: 100px;
   background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
   background-size: 100% 100%;
+  /* background-image: url('https://wallpapers.com/images/hd/meet-the-robinsons-animated-building-cfeeb6j98ykrqs8u.jpg'); */
+  /* background-size: 100% 120%; */
 }
 .profilePage header div {
   margin: 10px 10px;
@@ -355,8 +367,11 @@ main{
   margin: 5px 10px;
 }
 
-.profileInfo .top img {
+.profileInfo .top .avatar {
   border: 3px solid white;
+  background-image: url('https://m.media-amazon.com/images/M/MV5BMjI4NjMzNzkzNl5BMl5BanBnXkFtZTcwMDM2MDIyNw@@._V1_.jpg');
+  background-size: 100% 100%;
+  background-size: 100% 100%;
   border-radius: 50%;
   height: 50px;
   width: 50px;
@@ -710,7 +725,8 @@ main{
 }
 
 .notificationsPage header > * {
-  margin: 0 10px;
+  border: 1px solid lime;
+  margin: 5px 14px;
 }
 
 .notificationsPage header .gear{

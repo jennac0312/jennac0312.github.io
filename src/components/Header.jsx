@@ -14,7 +14,7 @@ const Header = ( {parent} ) => {
         return (
           <header>
             <div className="top">
-                <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
+                <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <img src="https://cdna.artstation.com/p/assets/images/images/031/538/850/original/petro-kosariekov-portal-gun-rick-and-morty2-2.gif?1603902186" alt="logo" className='logo'/>
                 <img src="" alt="" className='filler'/>
             </div>
@@ -26,7 +26,7 @@ const Header = ( {parent} ) => {
         return (
             <header>
               <div className="top">
-                <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
+                <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <input type="text" placeholder='🔍 Search Twitter' onClick={() => navigate('/searching')}/>
                 <p onClick={() => handleSettingsClick('/search')}>⚙️</p>
               </div>
@@ -47,7 +47,7 @@ const Header = ( {parent} ) => {
         return (
             <header>
                 <div className="top">
-                    <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
+                    <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                     <h3>Communities</h3>
                     <div className="right">
                         <p>🔍</p>
@@ -66,7 +66,7 @@ const Header = ( {parent} ) => {
     const notifs = () => {
         return (
             <header>
-                <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
+                <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Notifications</h3>
                     <p className='gear' onClick={() => handleSettingsClick('/notifications')}>⚙️</p>
             </header>
@@ -77,7 +77,7 @@ const Header = ( {parent} ) => {
         return (
             <header>
               <div className="top">
-                <img src={activeUser?.avatar} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
+                <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Messages</h3>
                     <p className='gear' onClick={() => handleSettingsClick('/messages')}>⚙️</p>
               </div>

@@ -18,19 +18,31 @@ const AppContextProvider = (props) => {
     const [ search, setSearch ] = useState("") // for searching page
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
 
+    const [ allPosts, setAllPosts ] = useState([])
+
     // API
     const fetchUsers = async () => {
         const response = await axios.get('https://dummyjson.com/users?limit=100')
-        console.log('USERS FETCH DATA:',response.data.users)
+        // console.log('USERS FETCH DATA:',response.data.users)
         setUsers(response.data.users)
 
         setActiveUser(response.data.users[3]) //since users state has no value yet
         return response.data
     }
 
+    const fetchPosts = async () => {
+        const response = await axios.get('https://dummyjson.com/posts?limit=5')
+            // .then(res => res.json())
+            // .then(console.log);
+        console.log('POSTS FETCH DATA', response.data.posts)
+        setAllPosts(response.data.posts)
+    }
+
     useEffect(() => {
         fetchUsers()
         console.log('USERS', users)
+        fetchPosts()
+        console.log('POSTS', allPosts)
     }, [])
 
     // functions
@@ -48,7 +60,9 @@ const AppContextProvider = (props) => {
             search, setSearch,
             clickedMessage, setClickedMessage,
 
-            handleSettingsClick, settingsRender, setSettingsRender
+            handleSettingsClick, settingsRender, setSettingsRender,
+
+            allPosts
 
         }}>
 
