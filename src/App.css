@@ -50,7 +50,9 @@ a{
   width: 100% !important;
   margin: 0 !important;
 }
-
+.blue{
+  color: rgb(59, 193, 255);
+}
 .underline{
   border-bottom: 4px solid skyblue;
   /* border-radius: -50px;  trying to round edges ...*/
@@ -973,6 +975,12 @@ main{
   margin: 0 10px;
 }
 
+.tweetPage main{
+  max-height: 679px;
+}
+.addPadding{
+  padding-bottom: 20px;
+}
 .tweet {
   border: 1px solid red;
 }
@@ -1057,7 +1065,28 @@ main{
 .tweetPage .comment .reactions{
   font-size: .9em;
 }
+.tweetPage .inputContainer{
+  /* border: 1px solid yellow; */
+  margin: 10px;
+}
+.tweetPage .inputContainer p {
+  /* border: 1px solid red; */
+  margin: 5px 0;
 
+}
+.tweetPage input {
+  width: 100% !important;
+  background-color: rgb(34, 34, 36);
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  /* text-align: center; */
+  /* padding-left: 10px; */
+  color: lightblue;
+}
+.tweetPage input::placeholder{
+  padding-left: 10px;
+}
 
 /*  OTHER PROFILE  */
 .otherProfilePage{

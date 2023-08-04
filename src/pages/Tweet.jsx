@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import Header from '../components/Header'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +6,9 @@ import Footer from '../components/Footer'
 
 const Tweet = () => {
 
-    let { clickedTweet, setClickedProfile, comments, users } = useContext(AppContext)
+    let { clickedTweet, setClickedProfile, comments, setComments, users } = useContext(AppContext)
+
+    const [ isTyping, setIsTyping ] = useState(false)
 
     const navigate = useNavigate()
     console.log(clickedTweet)
@@ -24,7 +26,7 @@ const Tweet = () => {
     <div className='tweetPage'>
 
         <Header parent="tweet"/>
-        <main>
+        <main className={ !isTyping && 'addPadding'} >
             <div className="tweet">
                 <div className="top">
                     <div className="left">
@@ -104,6 +106,10 @@ const Tweet = () => {
                 </div>
             </div>
         </main>
+        <div className="inputContainer">
+            { isTyping && <p className='small grey'> Replying to <span className="blue">@{clickedTweet.user.username}</span></p> }
+            <input type="text" placeholder='Post your reply' onClick={() => setIsTyping(true)} on/>
+        </div>
         <Footer />
 
     </div>
