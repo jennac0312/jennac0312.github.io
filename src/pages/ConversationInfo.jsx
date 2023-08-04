@@ -8,6 +8,7 @@ const ConversationInfo = () => {
   return (
     <div>
       <h1>conversation info</h1>
+      
     </div>
   )
 }

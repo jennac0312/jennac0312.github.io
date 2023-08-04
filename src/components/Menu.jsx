@@ -35,15 +35,15 @@ const Menu = ( { parent } ) => {
         </div>
       
       <nav>
-        <p onClick={() => handleClick()}><span className='icon'>👤</span><span className='bold'>Profile</span></p>
+        <p  className="hover" onClick={() => handleClick()}><span className='icon'>👤</span><span className='bold'>Profile</span></p>
         <p><span className='icon'>🫐</span><span className='bold'>Twitter Blue</span></p>
-        <p><span className='icon'>🔖</span><span className='bold'>Bookmarks</span></p>
-        <p><span className='icon'>📃</span><span className='bold'>Lists</span></p>
-        <p><span className='icon'>🎙️</span><span className='bold'>Spaces</span></p>
+        <p className="hover" ><span className='icon'>🔖</span><span className='bold'>Bookmarks</span></p>
+        <p className="hover" ><span className='icon'>📃</span><span className='bold'>Lists</span></p>
+        <p className="hover" ><span className='icon'>🎙️</span><span className='bold'>Spaces</span></p>
       </nav>
         <hr />
       <div className="extra">
-        <p onClick={() => setShowTools(!showTools)} className='bold'>
+        <p onClick={() => setShowTools(!showTools)} className='bold hover'>
             <span>Professional Tools</span>
             <span className='arrow'>{showTools ? '🔽' : '🔼'}</span>
         </p>
@@ -54,7 +54,7 @@ const Menu = ( { parent } ) => {
                 <p className='tabs'><span className="icon">💰</span> Twitter Monetization</p>
             </>
         }
-        <p onClick={() => setShowSettings(!showSettings)} className='bold'>
+        <p onClick={() => setShowSettings(!showSettings)} className='bold hover'>
             <span>Settings and Support</span>
             <span className='arrow'>{showSettings ? '🔽' : '🔼'}</span>
         </p>

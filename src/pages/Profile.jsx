@@ -25,12 +25,12 @@ const Profile = ( ) => {
         <header>
           {/* background image */}
           <div className="left">
-            <p className="back" onClick={() => handleClick() }>↩️</p>
+            <p className="back hover" onClick={() => handleClick() }>↩️</p>
           </div>
 
           <div className="right">
-            <p className="search">🔍</p>
-            <p className="share">🔝</p>
+            <p className="search hover">🔍</p>
+            <p className="share hover">🔝</p>
           </div>
         </header>
 

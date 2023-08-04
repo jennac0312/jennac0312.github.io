@@ -18,7 +18,7 @@ const Settings = () => {
     <div className='settings'>
 
         <div className="top">
-            <p className="back" onClick={() => handleClick(settingsRender)}>⬅️</p>
+            <p className="back hover" onClick={() => handleClick(settingsRender)}>⬅️</p>
             <div className="stack">
                 <h3>Settings</h3>
                 <p className="grey small username">@username</p>
@@ -26,7 +26,7 @@ const Settings = () => {
                 <p className='invisible'>⬅️</p>
         </div>
         <div className="bottom">
-            <input type="text" placeholder='🔍 Search settings' />
+            <input type="text hover" placeholder='🔍 Search settings' />
         </div>
 
         { settings.map((setting, index) => {

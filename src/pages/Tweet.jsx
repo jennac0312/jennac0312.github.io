@@ -60,11 +60,11 @@ const Tweet = () => {
                 <hr />
 
                 <div className="reactions">
-                    <p>💬</p>
-                    <p>🔁</p>
-                    <p>💜</p>
-                    <p>🔖</p>
-                    <p>⤴️</p>
+                    <p className='hover'>💬</p>
+                    <p className='hover'>🔁</p>
+                    <p className='hover'>💜</p>
+                    <p className='hover'>🔖</p>
+                    <p className='hover'>⤴️</p>
                 </div>
                 <hr className="full" />
 
@@ -73,7 +73,7 @@ const Tweet = () => {
                         comment.user = users[index+1]
                         return (
                             <>
-                            <div className="comment" key={index}>
+                            <div className="comment" key={index} >
                                 <div className="left">
                                     <img src={comment.user.image} alt="" className='avatar' onClick={() => handleClick(comment.user, `/profile/${comment.user.username}`)}/>
                                 </div>
@@ -81,7 +81,7 @@ const Tweet = () => {
                                     <div className="top">
                                         <div className="">
                                             <h4 className="username">{comment.user.firstName} {comment.user.lastName}</h4>
-                                            <p className="username grey">@{comment.user.username}</p>
+                                            <p className="username grey bold">@{comment.user.username}</p>
                                             <p className='grey'>• 23h</p>
                                         </div>
                                         <p className="dots">⋯</p>
@@ -90,11 +90,11 @@ const Tweet = () => {
                                         <p>{comment.body}</p>
                                     </div>
                                     <div className="reactions grey">
-                                        <p>💬</p>
-                                        <p>🔁</p>
-                                        <p>💜</p>
-                                        <p>📊</p>
-                                        <p>⤴️</p>
+                                        <p className='hover'>💬</p>
+                                        <p className='hover'>🔁</p>
+                                        <p className='hover'>💜</p>
+                                        <p className='hover'>📊</p>
+                                        <p className='hover'>⤴️</p>
                                     </div>
                                 </div>
                             </div>

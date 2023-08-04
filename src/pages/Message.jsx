@@ -15,16 +15,16 @@ const Message = () => {
     const [ message, setMessage ] = useState( { message: '', user: activeUser } )
     const [ isTyping, setIsTyping ] = useState(false)
     
-        // focus on last child with class... auto scroll essentially
-        // let lastBubble = document.querySelector('.bubble:last-child')
-        // let lastReply = document.querySelector('#self:last-child')
-        // console.log('last reply:', lastReply)
-        // lastReply?.setAttribute('ref','{ref}')
-        let followeEl = document.querySelector('.ref')
         const ref = useRef(null)
 
         if(ref.current){
-            ref.current.scrollTop = ref.current.scrollHeight
+            console.log(ref.current.scrollTop)
+            console.log(ref.current.scrollBottom)
+            //scroll height is the height of the container 670px
+            // scroll top is where top of container starts (scrolls to)
+
+            // ref.current.scrollTop = ref.current.scrollHeight
+            ref.current.scrollTo(0, ref.current.scrollHeight+100)
         }
     
     useEffect(() => {
@@ -59,13 +59,6 @@ const Message = () => {
             // console.log('REPLY', reply)
             // console.log('ALL MESSAGES',allMessages)
         } 
-        // console.log('ALL MESSAGES', allMessages)
-        // ref.current?.scrollIntoView( { behavior: 'smooth'} )
-        // console.log('REFFFFFFFFFFFFFFFFFFF',ref.current)
-        // followeEl.scrollIntoView()
-        // console.log('POSITION' ,followeEl.clientTop)
-        // console.log('POSITION' ,followeEl.clientTop)
-        // console.log('POSITION' ,followeEl.clientLeft)
 
     }
 
@@ -110,13 +103,24 @@ const Message = () => {
                   <p>...</p>
               </div>
           }
-    
-          <p className="ref">ref</p>
+          
+          {/* <p className="ref">focus on meeeee</p> */}
+          {window.onchange = () => {
+            // oh this fires when whole page changes.. clicked on searching hmmm
+            //   {document?.querySelector('.ref')?.focus()}
+            //   document?.querySelector('.reply')?.focus()
+            console.log('window changing')
+            //   let reply = document?.querySelector('.reply')
+            //   document?.querySelector('.reply')?.scrollIntoView()
+            //   console.log('REPLY TOPPPPPP', reply?.top)
+          }}
+
           </main>
 
           <input 
             type="text" 
-            placeholder='Start a message' 
+            placeholder='Start a message'
+            autoFocus
             value={message.message} 
             onChange={(e) => setMessage({message: e.target.value, user:activeUser})}
             onSubmit={(e) =>console.log(e.target.value)} 

@@ -67,12 +67,12 @@ const OtherProfile = () => {
           <header>
             {/* background image */}
             <div className="left">
-              <p className="back" onClick={() => navigate(-1) }>↩️</p>
+              <p className="back hover" onClick={() => navigate(-1) }>↩️</p>
             </div>
   
             <div className="right">
-              <p className="search">🔍</p>
-              <p className="share">🔝</p>
+              <p className="search hover">🔍</p>
+              <p className="share hover">🔝</p>
             </div>
           </header>
   

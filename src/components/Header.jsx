@@ -36,7 +36,7 @@ const Header = ( { parent, setAllMessages } ) => {
               <div className="top">
                 <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <input type="text" placeholder='🔍 Search Twitter' onClick={() => navigate('/searching')}/>
-                <p onClick={() => handleSettingsClick('/search')}>⚙️</p>
+                <p className='hover' onClick={() => handleSettingsClick('/search')}>⚙️</p>
               </div>
             </header>
           )
@@ -58,8 +58,8 @@ const Header = ( { parent, setAllMessages } ) => {
                     <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                     <h3>Communities</h3>
                     <div className="right">
-                        <p>🔍</p>
-                        <p>🧑‍🤝‍🧑</p>
+                        <p className='hover'>🔍</p>
+                        <p className='hover'>🧑‍🤝‍🧑</p>
                     </div>
                 </div>
                 <div className="flex">
@@ -76,7 +76,7 @@ const Header = ( { parent, setAllMessages } ) => {
             <header>
                 <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Notifications</h3>
-                    <p className='gear' onClick={() => handleSettingsClick('/notifications')}>⚙️</p>
+                    <p className='gear hover' onClick={() => handleSettingsClick('/notifications')}>⚙️</p>
             </header>
         )
     }
@@ -87,7 +87,7 @@ const Header = ( { parent, setAllMessages } ) => {
               <div className="top">
                 <img src={activeUser?.image} alt="" className='avatar hover' onClick={() => setShowMenu(!showMenu)}/>
                 <h3>Messages</h3>
-                    <p className='gear' onClick={() => handleSettingsClick('/messages')}>⚙️</p>
+                    <p className='gear hover' onClick={() => handleSettingsClick('/messages')}>⚙️</p>
               </div>
               <div className="bottom">
               <input type="text" placeholder='🔍 Search Direct Messages' className='hover'/>
@@ -100,9 +100,9 @@ const Header = ( { parent, setAllMessages } ) => {
         return (
             <header>
                 <div className="top">
-                    <p className="back icon" onClick={() => navigate(-1)}>⬅️</p>
+                    <p className="back icon hover" onClick={() => navigate(-1)}>⬅️</p>
                     <img src={clickedMessage.image} alt="" className='avatar'/>
-                    <p className='info icon' onClick={() => setAllMessages([])}>💡</p>
+                    <p className='info icon hover' onClick={() => setAllMessages([])}>💡</p>
                     {/* onClick={() => navigate('/settings')} */}
                 </div>
                 <div className="bottom">
@@ -115,7 +115,7 @@ const Header = ( { parent, setAllMessages } ) => {
     const tweet = () => {
         return (
             <header>
-                <p className="back" onClick={() => navigate(-1)}>⬅️</p>
+                <p className="back hover" onClick={() => navigate(-1)}>⬅️</p>
                 <h3>Tweet</h3>
                 <p className='invisible'>⬅️</p>
             </header>

@@ -41,7 +41,7 @@ const Searching = () => {
         <div className="recents">
             { recentSearched?.toReversed().map((search, index) => {
                 return(
-                    <div className="small" key={index} onClick={() => handleClick(search)}>
+                    <div className="small hover" key={index} onClick={() => handleClick(search)}>
                         <img src={search.image} alt="" />
                         <p>{search.firstName}</p>
                         <p className='grey small username bold'>@{search.username}</p>
@@ -55,7 +55,7 @@ const Searching = () => {
         <div className="searches">
             { searchResults.map((result) => {
                 return (
-                    <div className="result" onClick={() => handleClick(result)}>
+                    <div className="result hover" onClick={() => handleClick(result)}>
                         <img src={result.image} alt="" className='avatar' />
                         <div className="right">
                             <p className="bold name">{result.firstName} {result.lastName}</p>
