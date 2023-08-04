@@ -6,13 +6,14 @@ const Menu = ( { parent } ) => {
 
     const navigate = useNavigate()
 
-    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender, handleSettingsClick, activeUser } = useContext(AppContext)
+    let { showMenu, setShowMenu, lightMode, setLightMode, setProfileRender, handleSettingsClick, activeUser, setClickedProfile } = useContext(AppContext)
 
     const [ showTools, setShowTools ] = useState(false)
     const [ showSettings, setShowSettings ] = useState(false)
 
     const handleClick = () => {
         setShowMenu(false)
+        setClickedProfile(activeUser)
         setProfileRender(parent)
         navigate('/profile')
     }

@@ -30,7 +30,7 @@ const Tweet = () => {
             <div className="tweet">
                 <div className="top">
                     <div className="left">
-                        <img src={clickedTweet.user.image} alt="" className='avatar'/>
+                        <img src={clickedTweet.user.image} alt="" className='avatar' onClick={() => handleClick(clickedTweet.user, `/profile/${clickedTweet.user?.username}`)}/>
                         <div className="stack">
                             <p className="bold name">{clickedTweet.user.firstName} {clickedTweet.user.lastName}</p>
                             <p className="grey username">@{clickedTweet.user.username}</p>

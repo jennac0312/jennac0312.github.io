@@ -34,7 +34,7 @@ const AppContextProvider = (props) => {
     }
 
     const fetchPosts = async () => {
-        const response = await axios.get('https://dummyjson.com/posts?limit=5')
+        const response = await axios.get('https://dummyjson.com/posts?limit=150')
             // .then(res => res.json())
             // .then(console.log);
         console.log('POSTS FETCH DATA', response.data.posts)
