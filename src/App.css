@@ -1018,7 +1018,7 @@ main{
 }
 .tweet .stats > * {
   margin-right: 5px;
-  font-size: .85em;
+  font-size: .8em;
 }
 
 .tweet .reactions {
@@ -1056,4 +1056,162 @@ main{
 
 .tweetPage .comment .reactions{
   font-size: .9em;
+}
+
+
+/*  OTHER PROFILE  */
+.otherProfilePage{
+  border: 1px solid red;
+  height: 795px !important;
+  overflow-y: scroll;
+}
+
+.otherProfilePage header {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+  background-size: 100% 100%;
+  /* background-image: url('https://wallpapers.com/images/hd/meet-the-robinsons-animated-building-cfeeb6j98ykrqs8u.jpg'); */
+  /* background-size: 100% 120%; */
+}
+.otherProfilePage header div {
+  margin: 10px 10px;
+}
+.otherProfilePage header .right {
+  border: 1px solid purple;
+  display: flex;
+}
+
+.otherProfileInfo {
+  border: 1px solid white;
+  /* height: 200px; */
+}
+
+.otherProfileInfo > * {
+  margin: 0 10px;
+}
+
+.otherProfileInfo .top {
+  border: 1px solid pink;
+  /* height: 150px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 10px;
+}
+
+.otherProfileInfo .top .avatar {
+  border: 3px solid white;
+  background-image: url('https://m.media-amazon.com/images/M/MV5BMjI4NjMzNzkzNl5BMl5BanBnXkFtZTcwMDM2MDIyNw@@._V1_.jpg');
+  background-size: 100% 100%;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-top: -25px;
+  /* z-index: 2; */
+  /* margin-top: -10px; */
+}
+.otherProfileInfo .top .right{
+  border: 1px solid lime;
+  display: flex;
+  align-items: center;
+}
+.otherProfileInfo .top .right div{
+
+}
+.otherProfileInfo .top .right div{
+  border: 1px solid gray;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+}
+.otherProfileInfo .bell{
+  margin-bottom: 3px;
+}
+.otherProfileInfo .message{
+  margin-bottom: 5px;
+}
+
+.otherProfileInfo .top .followButton{
+  background-color: transparent;
+  background-color: white;
+  border: 1px solid gray;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  color: black;
+}
+.otherProfileInfo .top .followingButton{
+  background-color: transparent;
+  background-color: black;
+  border: 1px solid gray;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  color: white;
+}
+.otherProfileInfo .top .edit:hover{
+  background-color: rgb(51, 51, 51);
+}
+.otherProfileInfo .name{
+  font-size: 1.2em;
+  margin-bottom: -3px;
+}
+
+.otherProfileInfo .bio{
+  border: 1px solid skyblue;
+  margin: 10px 10px;
+  font-size: .9em;
+}
+
+.otherProfileInfo .bottom .location{
+  border: 1px solid orange;
+  font-size: .8em;
+}
+
+.otherProfileInfo .joined{
+  /* font-size: .8em; */
+  margin-left: 10px;
+}
+
+.otherProfileInfo .bottom .follow{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  font-size: .8em;
+  margin-top: 10px;
+}
+
+.otherProfileInfo .tabs {
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-bottom: thin solid grey;
+}
+
+.otherProfileInfo .tabs p{
+  /* border: 1px solid lime; */
+  padding: 0 2px 7px 2px;
+  color: grey;
+  font-weight: bold;
+  font-size: .8em;
+  cursor: pointer;
+}
+
+.otherProfilePage .feedContainer{
+  margin-top: 36px !important;
+}
+
+.otherProfilePage footer{
+  margin-top: -900px !important;
 }

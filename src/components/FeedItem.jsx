@@ -32,8 +32,8 @@ const FeedItem = ( {user, post} ) => {
         <div className="left hover" onClick={() => handleClick('PROFILE', `/profile/${user.username}`)}>
             <img src={user.image} alt="" className='avatar' />
         </div>
-        <div className="right small hover" onClick={() => handleClick('TWEET', `/tweet/${user.username}`)}>
-            <div className="top">
+        <div className="right small hover">
+            <div className="top" onClick={() => handleClick('TWEET', `/tweet/${user.username}`)}>
                 <div className="">
                     <p className="name bold">{user.firstName}</p>
                     <p className="username grey">@{user.username}</p>
@@ -42,7 +42,7 @@ const FeedItem = ( {user, post} ) => {
                 <p className="dots">⋯</p>
             </div>
 
-            <div className="middle">
+            <div className="middle" onClick={() => handleClick('TWEET', `/tweet/${user.username}`)}>
                 <p className="body">{post.body}</p>
             </div>
 

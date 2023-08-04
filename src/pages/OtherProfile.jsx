@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../contexts/app_context'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -12,17 +12,50 @@ const OtherProfile = () => {
 
     const [ count, setCount ] = useState(0)
     const navigate = useNavigate()
+    const [ follow, setFollow ] = useState(false)
   
     console.log('PROFILE RENDERER: ', profileRender)
+
+    useEffect(() => {
+        console.log(follow)
+    }, [follow])
   
     const handleClick = () => {
-      console.log('RETURN TO:', profileRender)
-      navigate(profileRender)
+      setFollow(() => !follow)
+      console.log('NOW', follow)
+      follow ? clickedProfile.height-- : clickedProfile.height++
+    }
+
+    const yesFollowing = () => {
+        console.log(follow)
+        return (
+            <div className="right">
+                <div>
+                    <p className="bell hover">🔔</p>
+                </div>
+                <div>
+                    <p className="message hover">✉️</p>
+                </div>
+                <button className="followingButton bold hover" onClick={() => handleClick()}>Following</button>
+              </div>
+        )
+    }
+
+    const notFollowing = () => {
+        console.log(follow)
+        return (
+            <div className="right">
+                <div>
+                    <p className="message hover">✉️</p>
+                </div>
+                <button className="followButton bold" onClick={() => handleClick()}>Follow</button>
+              </div>
+        )
     }
   
     return (
       <>
-        <div className='profilePage'>
+        <div className='otherProfilePage'>
           <header>
             {/* background image */}
             <div className="left">
@@ -35,18 +68,15 @@ const OtherProfile = () => {
             </div>
           </header>
   
-          <div className="profileInfo">
+          <div className="otherProfileInfo">
             <div className="top">
               <img src={clickedProfile.image} alt="" className='avatar'/>
-              <div className="right">
-                <p className="message">✉️</p>
-                <button className="followButton bold">Follow</button>
-              </div>
+              { follow ? yesFollowing() : notFollowing() }
             </div>
   
             <p className='bold name'>{clickedProfile.firstName} {clickedProfile.lastName}</p>
             <p className='grey '>@{clickedProfile.username}</p>
-            <p className="bio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, inventore.</p>
+            <p className="bio">{clickedProfile.company.title} in {clickedProfile.company.department}</p>
   
             <div className="bottom">
               <p className='location'><span>🌎 {clickedProfile.address.city}, {clickedProfile.address.state}</span> <span className="joined grey">📆 {clickedProfile.birthDate}</span></p>
@@ -67,7 +97,7 @@ const OtherProfile = () => {
             </div>
           </div>
   
-          <Feed />
+          <Feed parent={clickedProfile}/>
         </div>
         <Footer />
       </>
