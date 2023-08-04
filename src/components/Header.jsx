@@ -107,7 +107,7 @@ const Header = ( {parent} ) => {
     const tweet = () => {
         return (
             <header>
-                <p className="back" onClick={() => navigate('/home')}>⬅️</p>
+                <p className="back" onClick={() => navigate(-1)}>⬅️</p>
                 <h3>Tweet</h3>
                 <p className='invisible'>⬅️</p>
             </header>

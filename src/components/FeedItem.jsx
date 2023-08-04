@@ -47,7 +47,7 @@ const FeedItem = ( {user, post} ) => {
             </div>
 
             <div className="reactions">
-                <p>💬</p>
+                <p>💬{post.reactions}</p>
                 <p>🔁</p>
                 <p className='' onClick={() => setLikes((prev) => prev + 1)}>💜{likes}</p>
                 <p>📊</p>

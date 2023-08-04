@@ -42,7 +42,7 @@ const Profile = ( ) => {
 
           <p className='bold name'>{activeUser.firstName} {activeUser.lastName}</p>
           <p className='grey '>@{activeUser.username}</p>
-          <p className="bio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus, inventore.</p>
+          <p className="bio">{activeUser.company.title} in {activeUser.company.department}</p>
 
           <div className="bottom">
             <p className='location'><span>🌎 {activeUser.address.city}, {activeUser.address.state}</span> <span className="joined grey">📆 Joined September 2012 {activeUser.birthDate}</span></p>
@@ -63,7 +63,7 @@ const Profile = ( ) => {
           </div>
         </div>
 
-        <Feed />
+        <Feed parent="profile"/>
       </div>
       <Footer />
     </>
