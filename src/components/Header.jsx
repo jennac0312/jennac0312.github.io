@@ -104,8 +104,19 @@ const Header = ( {parent} ) => {
         )
     }
 
+    const tweet = () => {
+        return (
+            <header>
+                <p className="back" onClick={() => navigate('/home')}>⬅️</p>
+                <h3>Tweet</h3>
+                <p className='invisible'>⬅️</p>
+            </header>
+        )
+    }
+
 
     if( parent === "home" ) return home()
+    if( parent === "tweet" ) return tweet()
     if( parent === "search" ) return search()
     if( parent === "searching" ) return searching()
     if( parent === "communities" ) return communities()
