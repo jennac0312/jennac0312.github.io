@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Header = ( {parent} ) => {
 
@@ -8,6 +9,13 @@ const Header = ( {parent} ) => {
     // console.log(activeUser)
 
     let navigate = useNavigate()
+
+    useEffect(() => {
+        return() => {
+            setSearch("")
+            console.log(`%cSEARCHING FOR : ${search}`, 'color:red; font-size:40px')
+        }
+    }, [])
 
 
     const home = () => {

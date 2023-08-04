@@ -1244,14 +1244,14 @@ main{
 .otherProfileInfo .tabs {
   /* border: 1px solid blue; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 10px;
   border-bottom: thin solid grey;
 }
 
 .otherProfileInfo .tabs p{
   /* border: 1px solid lime; */
-  padding: 0 2px 7px 2px;
+  padding: 0 10px 7px 10px;
   color: grey;
   font-weight: bold;
   font-size: .8em;
@@ -1264,4 +1264,22 @@ main{
 
 .otherProfilePage footer{
   /* margin-top: -900px !important; */
+}
+
+.otherProfilePage .noTweets{
+  /* border: 1px solid lime; */
+  margin: 90px 0;
+}
+.noTweets .username{
+  color: brown;
+}
+.noTweets .gif{
+  filter: invert(1);
+  /* height: 100px; */
+  width: 100%;
+}
+
+.noTweets p{
+  margin: 0 20px;
+  text-align: center;
 }

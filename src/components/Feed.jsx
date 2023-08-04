@@ -35,7 +35,8 @@ const Feed = ( {parent} ) => {
     }
 
     const otherProfile = () => {
-        return (
+        return profilePosts.length ? 
+            (
             <div className='feedContainer'>
                 { profilePosts?.map((post, index) => {
                     // let user = users.filter((user) => user?.id === post?.userId)
@@ -44,7 +45,15 @@ const Feed = ( {parent} ) => {
                     return <FeedItem post={post} user={clickedProfile} key={index}/>
                 }) }
             </div>
-          )
+            ) 
+            : 
+            (
+                <div className='noTweets'>
+                    <p className="bold"><span className='username'>@{clickedProfile.username}</span> hasn't posted tweets</p>
+                    <p className="grey">Once they do, those posts will show up here.</p>
+                    <img src="https://cdn-images-1.medium.com/max/688/1*82D2cg8Gpe9CVISaph6RPg.gif" alt="" className="gif" />
+                </div>
+            )
     }
 
     if(parent === "home") return home()

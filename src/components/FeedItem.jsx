@@ -4,7 +4,7 @@ import { AppContext } from '../contexts/app_context'
 
 const FeedItem = ( {user, post} ) => {
     useEffect(() => {
-        console.log('POST', post) 
+        // console.log('POST', post) 
     }, [])
 
     let { setClickedTweet, setClickedProfile } = useContext(AppContext)
@@ -17,8 +17,8 @@ const FeedItem = ( {user, post} ) => {
     }
 
     const handleClick = (clicked, to) => {
-        console.log(`${clicked} CLICKED`)
-        console.log('GOING TO:', to)
+        // console.log(`${clicked} CLICKED`)
+        // console.log('GOING TO:', to)
         // console.log(user)
         // console.log(post)
         // console.log(tweet)

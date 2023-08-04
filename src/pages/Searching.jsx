@@ -16,21 +16,25 @@ const Searching = () => {
         setRecentSearched([...recentSearched, profile]) //delayed :(
         setClickedProfile(profile)
         navigate(`/profile/${profile?.username}`)
-        setSearch("")
     }
-
-    useEffect(() => {
-
-    }, [])
+    
+    // useEffect(() => {
+    //     return() => {
+    //         setSearch("")
+    //     }
+    // }, [])
 
   return (
     <div className='searchingPage'>
       <div>
       <Header parent="searching" />
       <main>
+
+        { recentSearched.length !== 0 &&
+        <>
         <div className="top">
             <h3>Recent searches</h3>
-            <p>✖️</p>
+            <p onClick={() => setRecentSearched([])}>✖️</p>
         </div>
         <div className="recents">
             { recentSearched?.toReversed().map((search, index) => {
@@ -43,6 +47,8 @@ const Searching = () => {
                 )
             })}
         </div>
+        </>
+        }
 
         <div className="searches">
             { searchResults.map((result) => {
