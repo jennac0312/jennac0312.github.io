@@ -12,10 +12,11 @@ const Searching = () => {
     let navigate = useNavigate()
 
     const handleClick = (profile) => {
-        console.log('RECENT SEARCHED',recentSearched)
+        console.log('RECENT SEARCHED', recentSearched)
         setRecentSearched([...recentSearched, profile]) //delayed :(
         setClickedProfile(profile)
         navigate(`/profile/${profile?.username}`)
+        setSearch("")
     }
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const Searching = () => {
             <p>✖️</p>
         </div>
         <div className="recents">
-            { recentSearched?.map((search, index) => {
+            { recentSearched?.toReversed().map((search, index) => {
                 return(
                     <div className="small" key={index}>
                         <img src={search.image} alt="" />
