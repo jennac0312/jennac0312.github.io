@@ -37,6 +37,10 @@ body{
 }
 
 /* GENERAL ------------------------------------------------------------ */
+a{
+  text-decoration: none;
+}
+
 .underline{
   border-bottom: 4px solid skyblue;
   /* border-radius: -50px;  trying to round edges ...*/
@@ -263,11 +267,13 @@ footer p:hover{
 }
 .menuContainer .tabs:hover {
   background-color: rgb(51, 51, 51);
+  cursor: pointer;
 }
 
 .menuContainer .tabs .icon{
   width: 30px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .menuContainer .mode{
@@ -300,15 +306,16 @@ main{
   /* flex-shrink: 3; */
 }
 
-.homePage .bottom{
+.homePage .tabs{
   display: flex;
   justify-content: space-around;
 }
 
-.homePage .bottom p{
+.homePage .tabs p{
   color: gray;
   font-weight: bold;
   font-size: .9em;
+  cursor: pointer;
 }
 
 
@@ -319,10 +326,55 @@ main{
 
 .feedItem{
   border: 1px solid lime;
-  height: 300px;
+  /* height: 300px; */
   width: 390px;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  margin: 10px 0;
 }
+.feedItem > *{
+  margin: 10px;
+  border: 1px solid hotpink;
+  height: fit-content;
+}
+
+.feedItem .avatar{
+  border: 1px solid white;
+  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.feedItem .right{
+  /* display: flex; */
+  /* padding-left: 20px; */
+  margin-left: 0;
+}
+.feedItem .right .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feedItem .right .top div{
+  display: flex;
+}
+.feedItem .right .top div > * {
+  margin-right: 3px;
+}
+.feedItem .body{
+  border: 1px solid pink;
+}
+.feedItem .reactions{
+  border: 1px solid yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedItem .reactions p{
+  cursor: pointer;
+}
+/* POST --------------------------------------------------------------- */
 
 /* PROFILE --------------------------------------------------------------------------- */
 .profilePage{
@@ -433,6 +485,7 @@ main{
   color: grey;
   font-weight: bold;
   font-size: .8em;
+  cursor: pointer;
 }
 
 .profilePage .feedContainer{
@@ -490,6 +543,7 @@ main{
   font-weight: bold;
   font-size: .8em;
   padding-bottom: 5px;
+  cursor: pointer;
 }
 
 .searchPage .video {
@@ -746,6 +800,8 @@ main{
   color: gray;
   width: 65px;
   text-align: center;
+  cursor: pointer;
+
 }
 
 /* MESSAGES DMS ------------------------------------------------------- */

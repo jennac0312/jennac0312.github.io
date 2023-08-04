@@ -17,6 +17,8 @@ const AppContextProvider = (props) => {
     const [ clickedProfile, setClickedProfile ] = useState({})
     const [ search, setSearch ] = useState("") // for searching page
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
+    const [ clickedTweet, setClickedTweet ] = useState({})
+    const [ comments, setComments ] = useState([])
 
     const [ allPosts, setAllPosts ] = useState([])
 
@@ -38,12 +40,24 @@ const AppContextProvider = (props) => {
         setAllPosts(response.data.posts)
     }
 
+    const fetchCommentsForPost = async (postId) => {
+        const response = await axios.get(`https://dummyjson.com/comments/post/${postId}`)
+
+        console.log(`COMMENTS FOR POST ${postId}`,response.data.comments)
+        setComments(response.data.comments)
+    }
+
     useEffect(() => {
         fetchUsers()
         console.log('USERS', users)
         fetchPosts()
         console.log('POSTS', allPosts)
     }, [])
+    
+    // grab comments when tweet is clicked
+    useEffect(() => {
+        fetchCommentsForPost(clickedTweet?.post?.id)
+    }, [clickedTweet])
 
     // functions
     const handleSettingsClick = (parent) => {
@@ -56,13 +70,18 @@ const AppContextProvider = (props) => {
         <AppContext.Provider value={{
             // pass state here
             showMenu, setShowMenu, lightMode, setLightMode, profileRender, setProfileRender,
-            users, activeUser, clickedProfile, setClickedProfile,
+            users, activeUser,
             search, setSearch,
             clickedMessage, setClickedMessage,
 
             handleSettingsClick, settingsRender, setSettingsRender,
 
-            allPosts
+            allPosts,
+
+            clickedTweet, setClickedTweet,
+            clickedProfile, setClickedProfile,
+
+            fetchCommentsForPost
 
         }}>
 

@@ -11,9 +11,9 @@ const Feed = () => {
   return (
     <div className='feedContainer'>
         { allPosts?.map((post, index) => {
-            let user = users.filter((user) => user.id === post.userId)
-            console.log('USER', user[0].id)
-            console.log('POST ID', post.userId)
+            let user = users.filter((user) => user?.id === post?.userId)
+            console.log('USER', user[0]?.id)
+            console.log('POST ID', post?.userId)
             return <FeedItem post={post} user={user[0]} key={index}/>
         }) }
     </div>

@@ -12,11 +12,13 @@ import Profile from './pages/Profile'
 import Searching from './pages/Searching';
 import Settings from './pages/Settings';
 import Message from './pages/Message';
+import Tweet from './pages/Tweet';
+import OtherProfile from './pages/OtherProfile';
 
 
 function App() {
 
-  let { clickedMessage } = useContext(AppContext)
+  let { clickedMessage, clickedTweet, clickedProfile } = useContext(AppContext)
 
   return (
     <div className="App">
@@ -32,6 +34,8 @@ function App() {
         <Route path='/messages' element={<DMs />}/>
         <Route path='/profile' element={<Profile />}/>
         <Route path={`/messages/${clickedMessage}`} element={<Message />}/>
+        <Route path={`/tweet/${clickedTweet?.user?.username}`} element={<Tweet />}/>
+        <Route path={`/profile/${clickedProfile?.username}`} element={<OtherProfile />}/>
       </Routes>
 
     </div>
