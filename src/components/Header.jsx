@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = ( {parent} ) => {
 
-    let { showMenu, setShowMenu, activeUser, clickedMessage, handleSettingsClick } = useContext(AppContext)
+    let { showMenu, setShowMenu, activeUser, clickedMessage, handleSettingsClick, setSearch, search } = useContext(AppContext)
     // console.log(activeUser)
 
     let navigate = useNavigate()
@@ -22,7 +22,7 @@ const Header = ( {parent} ) => {
         )
     }
 
-    const search = () => {
+    const searchPage = () => {
         return (
             <header>
               <div className="top">
@@ -37,7 +37,7 @@ const Header = ( {parent} ) => {
     const searching = () => {
         return(
             <header>
-                <input type="text" placeholder='🔍 Search' className='hover' autoFocus/>
+                <input type="text" placeholder='🔍 Search' value={search}className='hover' autoFocus onChange={(e) => setSearch(e.target.value)}/>
                 <p className='grey hover' onClick={() => navigate('/search')}>Cancel</p>
             </header>
         )
@@ -117,7 +117,7 @@ const Header = ( {parent} ) => {
 
     if( parent === "home" ) return home()
     if( parent === "tweet" ) return tweet()
-    if( parent === "search" ) return search()
+    if( parent === "search" ) return searchPage()
     if( parent === "searching" ) return searching()
     if( parent === "communities" ) return communities()
     if( parent === "notifs" ) return notifs()

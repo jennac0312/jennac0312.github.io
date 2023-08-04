@@ -16,6 +16,8 @@ const AppContextProvider = (props) => {
     const [ activeUser, setActiveUser ] = useState(users[3])
     const [ clickedProfile, setClickedProfile ] = useState({})
     const [ search, setSearch ] = useState("") // for searching page
+    const [ searchResults, setSearchResults ] = useState([])
+    const [ recentSearched, setRecentSearched ] = useState([])
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
     const [ clickedTweet, setClickedTweet ] = useState({})
     const [ comments, setComments ] = useState([])
@@ -55,6 +57,14 @@ const AppContextProvider = (props) => {
         setProfilePosts(response.data.posts)
     }
 
+    const fetchSearchedUsers = async () => {
+        const response = await axios.get(`https://dummyjson.com/users/search?q=${search}`)
+
+        console.log(response.data.users)
+        setSearchResults(response.data.users)
+    }
+
+    // EFFECTS
     useEffect(() => {
         fetchUsers()
         console.log('USERS', users)
@@ -73,6 +83,11 @@ const AppContextProvider = (props) => {
         fetchProfilePosts(clickedProfile?.id)
     }, [clickedProfile])
 
+    // grabbing for search results
+    useEffect(() => {
+        fetchSearchedUsers()
+    }, [search])
+
     // functions
     const handleSettingsClick = (parent) => {
         setShowMenu(false)
@@ -80,12 +95,15 @@ const AppContextProvider = (props) => {
         navigate('/settings')
     }
 
+
     return(
         <AppContext.Provider value={{
             // pass state here
             showMenu, setShowMenu, lightMode, setLightMode, profileRender, setProfileRender,
             users, activeUser,
-            search, setSearch,
+
+            search, setSearch, searchResults, setSearchResults, recentSearched, setRecentSearched,
+
             clickedMessage, setClickedMessage,
 
             handleSettingsClick, settingsRender, setSettingsRender,
