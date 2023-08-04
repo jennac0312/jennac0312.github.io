@@ -2,9 +2,8 @@ import React, { useContext, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import { click } from '@testing-library/user-event/dist/click'
 
-const Header = ( {parent} ) => {
+const Header = ( { parent, setAllMessages } ) => {
 
     let { showMenu, setShowMenu, activeUser, clickedMessage, handleSettingsClick, setSearch, search } = useContext(AppContext)
     // console.log(activeUser)
@@ -103,7 +102,7 @@ const Header = ( {parent} ) => {
                 <div className="top">
                     <p className="back icon" onClick={() => navigate(-1)}>⬅️</p>
                     <img src={clickedMessage.image} alt="" className='avatar'/>
-                    <p className='info icon' >💡</p>
+                    <p className='info icon' onClick={() => setAllMessages([])}>💡</p>
                     {/* onClick={() => navigate('/settings')} */}
                 </div>
                 <div className="bottom">

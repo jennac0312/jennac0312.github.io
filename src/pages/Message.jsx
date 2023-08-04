@@ -5,12 +5,15 @@ import Footer from '../components/Footer'
 
 const Message = () => {
 
-    let { clickedMessage, setClickedProfile ,clickedProfile, activeUser } = useContext(AppContext)
+    let { clickedMessage, setClickedProfile, clickedProfile, activeUser, fetchReply, reply } = useContext(AppContext)
 
     let array = [1,2,3,4,5,6,7,8,9,10]
 
+    console.log(clickedMessage)
+
     const [ allMessages, setAllMessages ] = useState([])
     const [ message, setMessage ] = useState( { message: '', user: activeUser } )
+    const [ isTyping, setIsTyping ] = useState(false)
 
     useEffect(() => {
         // console.log('MESSAGE', message.message)
@@ -32,15 +35,28 @@ const Message = () => {
             setMessage("")
             e.target.value = ""
             console.log(message)
-        }
 
+            if( allMessages.length  = 0 ) return //dont speak unless spoken to lol
+            setIsTyping(true)
+            fetchReply()
+            console.log('REPLY', reply)
+            console.log('ALL MESSAGES',allMessages)
+        } 
         // console.log('ALL MESSAGES', allMessages)
     }
+
+    //when reply is updated add to all messages
+    useEffect(() => {
+        setTimeout(() => {
+            setAllMessages([... allMessages, reply])
+            setIsTyping(false)
+        }, 2000);
+    }, [reply])
 
     return (
         <div className='message'>
           <div>
-          <Header parent="message" />
+          <Header parent="message" setAllMessages={setAllMessages}/>
             <hr />
           <main>
 
@@ -59,6 +75,13 @@ const Message = () => {
                     </div>
                 )
             }) }
+
+          {/* reply bubbles */}
+          { isTyping && 
+              <div className="bubble" id='other'>
+                  <p>...</p>
+              </div>
+          }
     
           </main>
 

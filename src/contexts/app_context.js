@@ -19,6 +19,7 @@ const AppContextProvider = (props) => {
     const [ searchResults, setSearchResults ] = useState([])
     const [ recentSearched, setRecentSearched ] = useState([])
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
+    const [ reply, setReply ] = useState({message: '', user:{} })
     const [ clickedTweet, setClickedTweet ] = useState({})
     const [ comments, setComments ] = useState([])
     const [ profilePosts, setProfilePosts ] = useState([])
@@ -66,6 +67,13 @@ const AppContextProvider = (props) => {
         setSearchResults(response.data.users)
     }
 
+    const fetchReply = async () => {
+        const response = await axios.get(`https://dummyjson.com/quotes/random`)
+
+        console.log(response.data.quote)
+        setReply({message: response.data.quote, user: clickedMessage})
+    }
+
     // EFFECTS
     useEffect(() => {
         fetchUsers()
@@ -106,7 +114,8 @@ const AppContextProvider = (props) => {
 
             search, setSearch, searchResults, setSearchResults, recentSearched, setRecentSearched,
 
-            clickedMessage, setClickedMessage,
+            clickedMessage, setClickedMessage, 
+            fetchReply, reply, setReply, 
 
             handleSettingsClick, settingsRender, setSettingsRender,
 
