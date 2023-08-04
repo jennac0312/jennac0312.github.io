@@ -8,16 +8,16 @@ import Footer from '../components/Footer'
 const OtherProfile = () => {
 
     let { clickedProfile, profileRender } = useContext(AppContext)
-    console.log('CLICKED PROFILE', clickedProfile)
+    // console.log('CLICKED PROFILE', clickedProfile)
 
     const [ count, setCount ] = useState(0)
     const navigate = useNavigate()
     const [ follow, setFollow ] = useState(false)
   
-    console.log('PROFILE RENDERER: ', profileRender)
+    // console.log('PROFILE RENDERER: ', profileRender)
 
     useEffect(() => {
-        console.log(follow)
+        // console.log(follow)
     }, [follow])
   
     const handleClick = () => {
@@ -42,7 +42,7 @@ const OtherProfile = () => {
     }
 
     const notFollowing = () => {
-        console.log(follow)
+        // console.log(follow)
         return (
             <div className="right">
                 <div>

@@ -13,7 +13,7 @@ const Searching = () => {
 
     const handleClick = (profile) => {
         console.log('RECENT SEARCHED', recentSearched)
-        setRecentSearched([...recentSearched, profile]) //delayed :(
+        setRecentSearched([...recentSearched, profile]) //need to check to make sure object doesnt already exist in array
         setClickedProfile(profile)
         navigate(`/profile/${profile?.username}`)
     }
@@ -39,7 +39,7 @@ const Searching = () => {
         <div className="recents">
             { recentSearched?.toReversed().map((search, index) => {
                 return(
-                    <div className="small" key={index}>
+                    <div className="small" key={index} onClick={() => handleClick(search)}>
                         <img src={search.image} alt="" />
                         <p>{search.firstName}</p>
                         <p className='grey small username bold'>@{search.username}</p>
