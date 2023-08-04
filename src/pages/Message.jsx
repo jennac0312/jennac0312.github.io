@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -14,7 +14,19 @@ const Message = () => {
     const [ allMessages, setAllMessages ] = useState([])
     const [ message, setMessage ] = useState( { message: '', user: activeUser } )
     const [ isTyping, setIsTyping ] = useState(false)
+    
+        // focus on last child with class... auto scroll essentially
+        // let lastBubble = document.querySelector('.bubble:last-child')
+        // let lastReply = document.querySelector('#self:last-child')
+        // console.log('last reply:', lastReply)
+        // lastReply?.setAttribute('ref','{ref}')
+        let followeEl = document.querySelector('.ref')
+        const ref = useRef(null)
 
+        if(ref.current){
+            ref.current.scrollTop = ref.current.scrollHeight
+        }
+    
     useEffect(() => {
         // console.log('MESSAGE', message.message)
         console.log(message)
@@ -34,15 +46,27 @@ const Message = () => {
             // console.log('CLICKED PROFILE',clickedProfile)
             setMessage("")
             e.target.value = ""
-            console.log(message)
+            // console.log(message)
 
             if( allMessages.length  = 0 ) return //dont speak unless spoken to lol
-            setIsTyping(true)
+
+            // for delay feeling
+            setTimeout(() => {
+                setIsTyping(true)
+            }, 2000);
+
             fetchReply()
-            console.log('REPLY', reply)
-            console.log('ALL MESSAGES',allMessages)
+            // console.log('REPLY', reply)
+            // console.log('ALL MESSAGES',allMessages)
         } 
         // console.log('ALL MESSAGES', allMessages)
+        // ref.current?.scrollIntoView( { behavior: 'smooth'} )
+        // console.log('REFFFFFFFFFFFFFFFFFFF',ref.current)
+        // followeEl.scrollIntoView()
+        // console.log('POSITION' ,followeEl.clientTop)
+        // console.log('POSITION' ,followeEl.clientTop)
+        // console.log('POSITION' ,followeEl.clientLeft)
+
     }
 
     //when reply is updated add to all messages
@@ -50,15 +74,19 @@ const Message = () => {
         setTimeout(() => {
             setAllMessages([... allMessages, reply])
             setIsTyping(false)
-        }, 2000);
-    }, [reply])
+        }, 5000);
 
+        return() => {
+            clearInterval()
+        }
+    }, [reply])
+    
     return (
         <div className='message'>
           <div>
           <Header parent="message" setAllMessages={setAllMessages}/>
             <hr />
-          <main>
+          <main ref={ref}>
 
             {/* { array.map((element, index) => {
                 return (
@@ -78,11 +106,12 @@ const Message = () => {
 
           {/* reply bubbles */}
           { isTyping && 
-              <div className="bubble" id='other'>
+              <div className="bubble reply" id='other'>
                   <p>...</p>
               </div>
           }
     
+          <p className="ref">ref</p>
           </main>
 
           <input 
