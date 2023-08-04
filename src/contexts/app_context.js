@@ -55,6 +55,7 @@ const AppContextProvider = (props) => {
     }, [])
     
     // grab comments when tweet is clicked
+    // wish you would stop running on mount and only run when clickedTweet changes like you're supposed to
     useEffect(() => {
         fetchCommentsForPost(clickedTweet?.post?.id)
     }, [clickedTweet])
@@ -81,8 +82,7 @@ const AppContextProvider = (props) => {
             clickedTweet, setClickedTweet,
             clickedProfile, setClickedProfile,
 
-            fetchCommentsForPost
-
+            fetchCommentsForPost, comments, setComments
         }}>
 
             {props.children}
