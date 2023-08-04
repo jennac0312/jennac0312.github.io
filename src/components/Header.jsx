@@ -106,7 +106,7 @@ const Header = ( {parent} ) => {
                     {/* onClick={() => navigate('/settings')} */}
                 </div>
                 <div className="bottom">
-                    <h4>user name {clickedMessage}</h4>
+                    <h4>user name {clickedMessage.username}</h4>
                 </div>
             </header>
         )

@@ -29,7 +29,7 @@ const OtherProfile = () => {
     const handleMessageClick = (profile, to) => {
         console.log('PROFILE MESSAGE CLICKED',profile)
         console.log('GO TO:', to)
-        setClickedMessage(profile.username)
+        setClickedMessage(profile)
         // console.log(clickedProfile)
         navigate(to)
     }

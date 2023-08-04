@@ -35,8 +35,8 @@ function App() {
         <Route path='/messages' element={<DMs />}/>
         <Route path='/profile' element={<Profile />}/>
         
-        <Route path={`/messages/${clickedMessage}`} element={<Message />}/>
-        {/* <Route path={`/messages/${clickedMessage?.username}`} element={<Message />}/> */}
+        {/* <Route path={`/messages/${clickedMessage}`} element={<Message />}/> */}
+        <Route path={`/messages/${clickedMessage?.username}`} element={<Message />}/>
 
         <Route path={`/tweet/${clickedTweet?.user?.username}`} element={<Tweet key={clickedTweet?.user?.id}/>}/>
         <Route path={`/profile/${clickedProfile?.username}`} element={<OtherProfile />}/>
