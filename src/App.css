@@ -1,7 +1,13 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+
 *{
   margin: 0;
   padding: 0;
   color: white;
+  font-family: 'Roboto';
+  letter-spacing: .8px;
 }
 #root{
   height: 844px;
