@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { click } from '@testing-library/user-event/dist/click'
 
 const Header = ( {parent} ) => {
 
@@ -101,12 +102,12 @@ const Header = ( {parent} ) => {
             <header>
                 <div className="top">
                     <p className="back icon" onClick={() => navigate(-1)}>⬅️</p>
-                    <img src="" alt=""/>
+                    <img src={clickedMessage.image} alt="" className='avatar'/>
                     <p className='info icon' >💡</p>
                     {/* onClick={() => navigate('/settings')} */}
                 </div>
                 <div className="bottom">
-                    <h4>user name {clickedMessage.username}</h4>
+                    <h4>{clickedMessage.firstName} {clickedMessage.lastName}</h4>
                 </div>
             </header>
         )

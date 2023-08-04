@@ -44,6 +44,7 @@ const AppContextProvider = (props) => {
     }
 
     const fetchCommentsForPost = async (postId) => {
+        if(postId === undefined) return
         const response = await axios.get(`https://dummyjson.com/comments/post/${postId}`)
 
         console.log(`COMMENTS FOR POST ${postId}`,response.data.comments)
@@ -51,6 +52,7 @@ const AppContextProvider = (props) => {
     }
 
     const fetchProfilePosts = async (userId) => {
+        if(userId === undefined) return
         const response = await axios.get(`https://dummyjson.com/posts/user/${userId}`)
 
         console.log('POSTS FOR PROFILE', response.data.posts)
