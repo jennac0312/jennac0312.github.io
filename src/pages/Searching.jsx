@@ -14,6 +14,8 @@ const Searching = () => {
     const handleClick = (profile) => {
         console.log('RECENT SEARCHED', recentSearched)
         setRecentSearched([...recentSearched, profile]) //need to check to make sure object doesnt already exist in array
+        // setRecentSearched( [ ...recentSearched , recentSearched.filter((search) => search.id !== profile.id ) ] )
+        console.log(recentSearched)
         setClickedProfile(profile)
         navigate(`/profile/${profile?.username}`)
     }

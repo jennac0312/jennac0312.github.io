@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 
 const OtherProfile = () => {
 
-    let { clickedProfile, profileRender } = useContext(AppContext)
+    let { clickedProfile, profileRender, setClickedMessage } = useContext(AppContext)
     // console.log('CLICKED PROFILE', clickedProfile)
 
     const [ count, setCount ] = useState(0)
@@ -22,18 +22,26 @@ const OtherProfile = () => {
   
     const handleClick = () => {
       setFollow(() => !follow)
-      console.log('NOW', follow)
+    //   console.log('NOW', follow)
       follow ? clickedProfile.height-- : clickedProfile.height++
     }
 
+    const handleMessageClick = (profile, to) => {
+        console.log('PROFILE MESSAGE CLICKED',profile)
+        console.log('GO TO:', to)
+        setClickedMessage(profile.username)
+        // console.log(clickedProfile)
+        navigate(to)
+    }
+
     const yesFollowing = () => {
-        console.log(follow)
+        // console.log(follow)
         return (
             <div className="right">
                 <div>
                     <p className="bell hover">🔔</p>
                 </div>
-                <div>
+                <div onClick={() => handleMessageClick(clickedProfile,`/messages/${clickedProfile.username}`)}>
                     <p className="message hover">✉️</p>
                 </div>
                 <button className="followingButton bold hover" onClick={() => handleClick()}>Following</button>
@@ -45,7 +53,7 @@ const OtherProfile = () => {
         // console.log(follow)
         return (
             <div className="right">
-                <div>
+                <div onClick={() => handleMessageClick(clickedProfile,`/messages/${clickedProfile.username}`)}>
                     <p className="message hover">✉️</p>
                 </div>
                 <button className="followButton bold" onClick={() => handleClick()}>Follow</button>

@@ -12,7 +12,7 @@ const Header = ( {parent} ) => {
 
     useEffect(() => {
         return() => {
-            setSearch("")
+            setSearch(null)
             console.log(`%cSEARCHING FOR : ${search}`, 'color:red; font-size:40px')
         }
     }, [])
@@ -100,7 +100,7 @@ const Header = ( {parent} ) => {
         return (
             <header>
                 <div className="top">
-                    <p className="back icon" onClick={() => navigate('/messages')}>⬅️</p>
+                    <p className="back icon" onClick={() => navigate(-1)}>⬅️</p>
                     <img src="" alt=""/>
                     <p className='info icon' >💡</p>
                     {/* onClick={() => navigate('/settings')} */}

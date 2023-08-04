@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 const Message = () => {
 
-    let { clickedMessage } = useContext(AppContext)
+    let { clickedMessage, clickedProfile } = useContext(AppContext)
 
     let array = [1,2,3,4,5,6,7,8,9,10]
 
