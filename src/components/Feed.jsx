@@ -7,11 +7,12 @@ const Feed = ( {parent} ) => {
     let { users, allPosts, profilePosts, clickedProfile } = useContext(AppContext)
 
     let array = [1,2,3,4,5]
+    console.log('ALL POSTS', allPosts)
 
     const home = () => {
         return (
             <div className='feedContainer'>
-                { allPosts?.map((post, index) => {
+                { allPosts?.toReversed().map((post, index) => {
                     let user = users.filter((user) => user?.id === post?.userId)
                     // console.log('USER', user[0]?.id)
                     // console.log('POST ID', post?.userId)

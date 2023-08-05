@@ -9,6 +9,16 @@ const AppContextProvider = (props) => {
     const navigate = useNavigate()
     const [ showMenu, setShowMenu ] = useState(false) // toggle menu
     const [ createTweet, setCreateTweet ] = useState(false) // get rid of circle
+    const [ tweet, setTweet ] = useState(
+        {
+            // body: '',
+            id: 'num',
+            reactions: 0,
+            tags: [],
+            title: '',
+            userId: {},
+        }
+    )
 
     const [ profileRender, setProfileRender ] = useState("") // for back button in profile
     const [ settingsRender, setSettingsRender ] = useState("") //for back button in settings
@@ -29,7 +39,7 @@ const AppContextProvider = (props) => {
     const [ comments, setComments ] = useState([])
     const [ profilePosts, setProfilePosts ] = useState([])
 
-    const [ allPosts, setAllPosts ] = useState([])
+    const [ allPosts, setAllPosts ] = useState([]) //home page tweets
 
     // API
     const fetchUsers = async () => {
@@ -122,6 +132,7 @@ const AppContextProvider = (props) => {
             // pass state here
             showMenu, setShowMenu, lightMode, setLightMode,
             setCreateTweet, createTweet,
+            tweet, setTweet,
             profileRender, setProfileRender,
             users, activeUser,
 
@@ -133,7 +144,7 @@ const AppContextProvider = (props) => {
 
             handleSettingsClick, settingsRender, setSettingsRender,
 
-            allPosts,
+            allPosts, setAllPosts,
 
             clickedTweet, setClickedTweet,
             clickedProfile, setClickedProfile,

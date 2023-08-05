@@ -1364,6 +1364,7 @@ main{
 /* CREATETWEET ------------------------------------------------------- */
 .createTweet{
   border: 1px solid blue;
+  position: relative;
 }
 .createTweet header {
   display: flex;
@@ -1385,4 +1386,51 @@ main{
   border-radius: 10px;
   padding: 5px 13px;
   margin-left: 15px;
+}
+
+.createTweet textArea {
+  width: 305px;
+  height: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  /* height: 30px; */
+  text-align: left;
+  padding: 10px;
+  color: whitesmoke;
+  font-size: 15px;
+  outline: none;
+}
+.createTweet textArea::placeholder{
+  /* color: red; */
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+.createTweet .textBox {
+  border: 1px solid lime;
+  display: flex;
+  margin: 0 10px;
+  height: 730px !important;
+}
+.createTweet .textBox .right {
+  /* border: 1px solid orange; */
+  width: 100%;
+  height: 700px;
+}
+
+.createTweet .avatar{
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 35px;
+  /* margin-right: 5px; */
+}
+
+.createTweet .public {
+  border: 1px solid rgb(59, 193, 255);
+  color: rgb(59, 193, 255);
+  width: fit-content;
+  border-radius: 10px;
+  padding: 1px 10px;
+  margin-left: 7px;
 }
