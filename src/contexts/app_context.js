@@ -8,6 +8,8 @@ const AppContextProvider = (props) => {
 
     const navigate = useNavigate()
     const [ showMenu, setShowMenu ] = useState(false) // toggle menu
+    const [ createTweet, setCreateTweet ] = useState(false) // get rid of circle
+
     const [ profileRender, setProfileRender ] = useState("") // for back button in profile
     const [ settingsRender, setSettingsRender ] = useState("") //for back button in settings
     const [ lightMode, setLightMode ] = useState(false) // maybe
@@ -78,7 +80,7 @@ const AppContextProvider = (props) => {
         } else {
             response = await axios.get(`https://api.kanye.rest/`)
         }
-        
+
         console.log(response.data.quote)
         setReply({message: response.data.quote, user: clickedMessage, dmId: clickedMessage.id})
     }
@@ -118,7 +120,9 @@ const AppContextProvider = (props) => {
     return(
         <AppContext.Provider value={{
             // pass state here
-            showMenu, setShowMenu, lightMode, setLightMode, profileRender, setProfileRender,
+            showMenu, setShowMenu, lightMode, setLightMode,
+            setCreateTweet, createTweet,
+            profileRender, setProfileRender,
             users, activeUser,
 
             search, setSearch, searchResults, setSearchResults, recentSearched, setRecentSearched,

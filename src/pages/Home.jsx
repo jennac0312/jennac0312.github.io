@@ -27,7 +27,6 @@ const Home = () => {
                   <p onClick={() => setCount(0)} className={count === 0 && 'underline'}>For You</p>
                   <p onClick={() => setCount(1)} className={count === 1 && 'underline'}>Following</p>
           </div>
-          { !showMenu && <Circle symbol="plus"/>}
           <Feed parent="home"/>
         </main>
 

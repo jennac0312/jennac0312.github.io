@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './App.css';
 import { AppContext } from './contexts/app_context';
 import { Routes, Route } from 'react-router-dom';
@@ -15,19 +15,22 @@ import Message from './pages/Message';
 import Tweet from './pages/Tweet';
 import OtherProfile from './pages/OtherProfile';
 import ProfilePicture from './pages/ProfilePicture';
+import CreateTweet from './pages/CreateTweet';
+import Circle from './components/Circle';
 
 
 function App() {
 
-  let { clickedMessage, clickedTweet, clickedProfile } = useContext(AppContext)
+  let { clickedMessage, clickedTweet, clickedProfile, showMenu, createTweet } = useContext(AppContext)
+
 
   return (
     <div className="App">
-
       <Routes>
         <Route path='*' element={<h1>now you're lost... lost in the heat of it all</h1>}/>
         <Route path='/' element={<Loading />}/>
         <Route path='/home' element={<Home />}/>
+        <Route path='/tweet' element={<CreateTweet />}/>
         <Route path='/settings' element={<Settings />}/>
         <Route path='/search' element={<Search />}/>
         <Route path='/searching' element={<Searching />}/>
@@ -44,6 +47,7 @@ function App() {
         <Route path={`/profile/${clickedProfile?.username}/avi`} element={<ProfilePicture />}/>
       </Routes>
 
+      { !showMenu && !createTweet && <Circle symbol="plus"/>}
     </div>
   );
 }
