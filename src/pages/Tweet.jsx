@@ -6,12 +6,16 @@ import Footer from '../components/Footer'
 
 const Tweet = () => {
 
-    let { clickedTweet, setClickedProfile, comments, setComments, users } = useContext(AppContext)
+    let { clickedTweet, setClickedProfile, comments, setComments, users, activeUser } = useContext(AppContext)
 
     const [ isTyping, setIsTyping ] = useState(false)
+    const [ message, setMessage] = useState({user: {...activeUser}, body: '', id: activeUser.id, postId: clickedTweet.post.id })
 
     const navigate = useNavigate()
-    console.log(clickedTweet)
+    console.log('CLICKED TWEET',clickedTweet)
+    console.log('COMMENTS', comments)
+    console.log('ACTIVEUSER', activeUser)
+    
     const handleClick = (user, to) => {
         console.log(`${user.username} CLICKED`)
         console.log('GOING TO:', to)
@@ -20,6 +24,17 @@ const Tweet = () => {
         // console.log(tweet)
         setClickedProfile(user)
         navigate(to)
+    }
+
+    const handleEnter = (e) => {
+        e.preventDefault()
+        console.log(e.target.value)
+        console.log('COMMENTSSSSS', comments)
+        if(e.key === "Enter"){
+            console.log('sending message')
+            setComments([...comments, message])
+            console.log(comments)
+        }
     }
 
   return (
@@ -70,7 +85,14 @@ const Tweet = () => {
 
                 <div className="comments">
                     { comments.map((comment, index) => {
-                        comment.user = users[index+1]
+                        console.log('commenttttt',comment)
+                        // console.log('comment userrrr',comment.user)
+                        // console.log('user index with comment id',users[comment.user.id-1])
+                        // console.log(comment.user.image)
+                        if(comment.user.image === undefined){
+                            comment.user = users[comment.user.id-1]
+                        }
+                        // console.log(comment.user)
                         return (
                             <>
                             <div className="comment" key={index} >
@@ -108,7 +130,14 @@ const Tweet = () => {
         </main>
         <div className="inputContainer">
             { isTyping && <p className='small grey'> Replying to <span className="blue">@{clickedTweet.user.username}</span></p> }
-            <input type="text" placeholder='Post your reply' onClick={() => setIsTyping(true)} on/>
+            <input 
+                type="text" 
+                placeholder='Post your reply' 
+                onClick={() => setIsTyping(true)}
+                onChange={(e) => setMessage({ ...message})}
+                value={message.body}
+                onKeyDown={(e) => handleEnter(e)}
+            />
         </div>
         <Footer />
 

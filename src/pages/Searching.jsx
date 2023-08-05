@@ -32,7 +32,12 @@ const Searching = () => {
       <Header parent="searching" />
       <main>
 
-        { recentSearched.length !== 0 &&
+        { recentSearched.length === 0 ? 
+        
+        <div className="top center">
+            <h3 className='center'>NO RECENT SEARCHES</h3>
+        </div>
+        :
         <>
         <div className="top">
             <h3>Recent searches</h3>

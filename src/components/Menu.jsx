@@ -66,7 +66,7 @@ const Menu = ( { parent } ) => {
           </>
       }
       </div>
-      <div className="mode" onClick={() => setLightMode(!lightMode)}>
+      <div className="mode hover" onClick={() => setLightMode(!lightMode)}>
         { lightMode ? '🔆' : '🌙'}
       </div>
     </div>

@@ -36,6 +36,8 @@ const Message = () => {
     }, [message])
 
     const handleEnter = (e) => {
+        // e.preventDefault()
+        console.log(e.timeStamp)
         if( message === "" ) return
         if(e.key === "Enter") {
             console.log('sending message')

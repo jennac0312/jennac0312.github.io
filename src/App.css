@@ -13,6 +13,7 @@
   height: 844px;
   width: 390px;
   /* border: 2px solid red; */
+  margin: auto !important;
 }
 body{
   /* background-color: aqua; */
@@ -58,6 +59,12 @@ a{
 }
 .blue{
   color: rgb(59, 193, 255);
+}
+
+.center{
+  /* text-align: center; */
+  justify-content: center !important;
+  /* align-items: center !important; */
 }
 .underline{
   border-bottom: 4px solid skyblue;
@@ -296,6 +303,7 @@ footer p:hover{
 
 .menuContainer .mode{
   /* border: 1px solid red; */
+  width: fit-content;
   /* position: absolute; */
   margin-top: 290px;
   font-size: 20px;
