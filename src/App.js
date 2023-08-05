@@ -21,7 +21,7 @@ import Circle from './components/Circle';
 
 function App() {
 
-  let { clickedMessage, clickedTweet, clickedProfile, showMenu, createTweet } = useContext(AppContext)
+  let { isLoading, clickedMessage, clickedTweet, clickedProfile, showMenu, createTweet } = useContext(AppContext)
 
 
   return (
@@ -47,7 +47,8 @@ function App() {
         <Route path={`/profile/${clickedProfile?.username}/avi`} element={<ProfilePicture />}/>
       </Routes>
 
-      { !showMenu && !createTweet && <Circle symbol="plus"/>}
+      { !showMenu && !createTweet && !isLoading && <Circle symbol="plus"/>}
+
     </div>
   );
 }

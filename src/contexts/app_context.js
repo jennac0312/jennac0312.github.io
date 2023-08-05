@@ -7,6 +7,7 @@ export const AppContext = createContext()
 const AppContextProvider = (props) => {
 
     const navigate = useNavigate()
+    const [ isLoading, setIsLoading ] = useState(true)
     const [ showMenu, setShowMenu ] = useState(false) // toggle menu
     const [ createTweet, setCreateTweet ] = useState(false) // get rid of circle
     const [ tweet, setTweet ] = useState(
@@ -130,6 +131,7 @@ const AppContextProvider = (props) => {
     return(
         <AppContext.Provider value={{
             // pass state here
+            isLoading, setIsLoading,
             showMenu, setShowMenu, lightMode, setLightMode,
             setCreateTweet, createTweet,
             tweet, setTweet,
