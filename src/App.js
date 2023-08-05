@@ -14,6 +14,7 @@ import Settings from './pages/Settings';
 import Message from './pages/Message';
 import Tweet from './pages/Tweet';
 import OtherProfile from './pages/OtherProfile';
+import ProfilePicture from './pages/ProfilePicture';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
 
         <Route path={`/tweet/${clickedTweet?.user?.username}`} element={<Tweet key={clickedTweet?.user?.id}/>}/>
         <Route path={`/profile/${clickedProfile?.username}`} element={<OtherProfile />}/>
+        <Route path={`/profile/${clickedProfile?.username}/avi`} element={<ProfilePicture />}/>
       </Routes>
 
     </div>

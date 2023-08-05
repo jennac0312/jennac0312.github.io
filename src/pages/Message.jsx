@@ -2,20 +2,27 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
 
 const Message = () => {
 
-    let { clickedMessage, setClickedProfile, clickedProfile, activeUser, fetchReply, reply } = useContext(AppContext)
-
-    let array = [1,2,3,4,5,6,7,8,9,10]
+    let { clickedMessage, setClickedProfile, clickedProfile, activeUser, fetchReply, reply, allMessages, setAllMessages } = useContext(AppContext)
 
     console.log(clickedMessage)
 
-    const [ allMessages, setAllMessages ] = useState([])
-    const [ message, setMessage ] = useState( { message: '', user: activeUser } )
+    // need to filter thru allMessages to find this conversation
+    let currentMessages = []
+    allMessages.filter((message) => { 
+        message.dmId === clickedMessage.id && currentMessages.push(message)
+    })
+    console.log('CURRENT MESSAGE THREAD',currentMessages)
+
+    // const [ allMessages, setAllMessages ] = useState([])
+    const [ message, setMessage ] = useState( { message: '', user: activeUser, dmId: clickedMessage.id } )
     const [ isTyping, setIsTyping ] = useState(false)
+    console.log('ALL MESSAGESSSSSS', allMessages)
     
-        const ref = useRef(null)
+    const ref = useRef(null)
 
         if(ref.current){
             console.log(ref.current.scrollTop)
@@ -42,20 +49,16 @@ const Message = () => {
         if(e.key === "Enter") {
             console.log('sending message')
             setAllMessages([... allMessages, message])
-            // console.log('OG CLICKED PROFILE', clickedProfile)
-            // setClickedProfile({...setClickedProfile, messages: allMessages})
-            // setClickedProfile( clickedProfile.messages = allMessages )
-            // console.log('CLICKED PROFILE',clickedProfile)
             setMessage("")
             e.target.value = ""
             // console.log(message)
-
-            if( allMessages.length  = 0 ) return //dont speak unless spoken to lol
+            console.log('ACTIVE USERRRRRRRRRRRR',activeUser)
+            if( currentMessages[currentMessages.length - 1]?.user?.id === activeUser.id ) return //dont speak unless spoken to lol
 
             // for delay feeling
             setTimeout(() => {
                 setIsTyping(true)
-            }, 2000);
+            }, 1250);
 
             fetchReply()
             // console.log('REPLY', reply)
@@ -91,7 +94,7 @@ const Message = () => {
                 )
             }) } */}
 
-            { allMessages?.map((message, index) => {
+            { currentMessages?.map((message, index) => {
                 return (
                     <div className="bubble" id={message.user === activeUser ? 'self' : 'other' } key={index}>
                         <p>{message.message}</p>
@@ -124,7 +127,7 @@ const Message = () => {
             placeholder='Start a message'
             autoFocus
             value={message.message} 
-            onChange={(e) => setMessage({message: e.target.value, user:activeUser})}
+            onChange={(e) => setMessage({message: e.target.value, user:activeUser, dmId: clickedMessage.id})}
             onSubmit={(e) =>console.log(e.target.value)} 
             onKeyDown={(e) => handleEnter(e)}
           />

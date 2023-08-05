@@ -78,7 +78,7 @@ const OtherProfile = () => {
   
           <div className="otherProfileInfo">
             <div className="top">
-              <img src={clickedProfile.image} alt="" className='avatar'/>
+              <img src={clickedProfile.image} alt="" className='avatar' onClick={() => navigate(`/profile/${clickedProfile.username}/avi`)}/>
               { follow ? yesFollowing() : notFollowing() }
             </div>
   

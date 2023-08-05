@@ -9,12 +9,14 @@ const Tweet = () => {
     let { clickedTweet, setClickedProfile, comments, setComments, users, activeUser } = useContext(AppContext)
 
     const [ isTyping, setIsTyping ] = useState(false)
-    const [ message, setMessage] = useState({user: {...activeUser}, body: '', id: activeUser.id, postId: clickedTweet.post.id })
+    const [ message, setMessage] = useState({user: {...activeUser}, body: [], id: activeUser.id, postId: clickedTweet.post.id })
+
+    const [ allComments, setAllComments ] = useState(...comments)
 
     const navigate = useNavigate()
-    console.log('CLICKED TWEET',clickedTweet)
-    console.log('COMMENTS', comments)
-    console.log('ACTIVEUSER', activeUser)
+    // console.log('CLICKED TWEET',clickedTweet)
+    // console.log('COMMENTS', comments)
+    // console.log('ACTIVEUSER', activeUser)
     
     const handleClick = (user, to) => {
         console.log(`${user.username} CLICKED`)
@@ -25,15 +27,31 @@ const Tweet = () => {
         setClickedProfile(user)
         navigate(to)
     }
+    const handleChange = (e) => {
+        console.log('CHANGING..............')
+        console.log(e.target.value)
+        // message.body = [...message.body, e.target.value]
+        setMessage({...message, body: e.target.value})
+        console.log(message)
+        // message.body = ""
+    }
 
     const handleEnter = (e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-        console.log('COMMENTSSSSS', comments)
+        // e.preventDefault()
+
+        // console.log('MESSAGE BODYYYYYYYYYYYYYY', message.body)
+        // console.log(e.target.value)
+        // console.log('COMMENTSSSSS', comments)
+
+        if(message.body === "") return
+        if(e.key !== "Enter") return
         if(e.key === "Enter"){
-            console.log('sending message')
             setComments([...comments, message])
+            setAllComments([allComments, message])
+            console.log('ALLLLLL COMMMENTSSSSSSSS', allComments)
             console.log(comments)
+            e.target.value = ""
+            console.log(e.target.value)
         }
     }
 
@@ -85,7 +103,7 @@ const Tweet = () => {
 
                 <div className="comments">
                     { comments.map((comment, index) => {
-                        console.log('commenttttt',comment)
+                        // console.log('commenttttt',comment)
                         // console.log('comment userrrr',comment.user)
                         // console.log('user index with comment id',users[comment.user.id-1])
                         // console.log(comment.user.image)
@@ -134,7 +152,7 @@ const Tweet = () => {
                 type="text" 
                 placeholder='Post your reply' 
                 onClick={() => setIsTyping(true)}
-                onChange={(e) => setMessage({ ...message})}
+                onChange={(e) => handleChange(e)}
                 value={message.body}
                 onKeyDown={(e) => handleEnter(e)}
             />

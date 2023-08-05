@@ -19,7 +19,10 @@ const AppContextProvider = (props) => {
     const [ searchResults, setSearchResults ] = useState([])
     const [ recentSearched, setRecentSearched ] = useState([])
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
-    const [ reply, setReply ] = useState({message: '', user:{} })
+    const [ reply, setReply ] = useState({message: '', user:{} }) // for dm response
+    const [ allMessages, setAllMessages ] = useState([]) //to keep dm convo
+
+
     const [ clickedTweet, setClickedTweet ] = useState({})
     const [ comments, setComments ] = useState([])
     const [ profilePosts, setProfilePosts ] = useState([])
@@ -68,10 +71,16 @@ const AppContextProvider = (props) => {
     }
 
     const fetchReply = async () => {
-        const response = await axios.get(`https://dummyjson.com/quotes/random`)
+        let response
 
+        if(Math.random() > .5 ){
+            response = await axios.get(`https://dummyjson.com/quotes/random`)
+        } else {
+            response = await axios.get(`https://api.kanye.rest/`)
+        }
+        
         console.log(response.data.quote)
-        setReply({message: response.data.quote, user: clickedMessage})
+        setReply({message: response.data.quote, user: clickedMessage, dmId: clickedMessage.id})
     }
 
     // EFFECTS
@@ -115,7 +124,8 @@ const AppContextProvider = (props) => {
             search, setSearch, searchResults, setSearchResults, recentSearched, setRecentSearched,
 
             clickedMessage, setClickedMessage, 
-            fetchReply, reply, setReply, 
+            fetchReply, reply, setReply,
+            allMessages, setAllMessages,
 
             handleSettingsClick, settingsRender, setSettingsRender,
 
