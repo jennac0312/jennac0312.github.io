@@ -45,11 +45,11 @@ const Profile = ( ) => {
           <p className="bio">{activeUser.company.title} in {activeUser.company.department}</p>
 
           <div className="bottom">
-            <p className='location'><span>🌎 {activeUser.address.city}, {activeUser.address.state}</span> <span className="joined grey">📆 Joined September 2012 {activeUser.birthDate}</span></p>
+            <p className='location'><span>🌎 {activeUser.address.city}, {activeUser.address.state}</span> <span className="joined grey">🎈Born {activeUser.birthDate}</span></p>
           
             <div className="follow">
-                <p><span className="bold">{Math.ceil(activeUser.weight)}</span> Following</p>
-                <p><span className="bold">{Math.ceil(activeUser.height)}</span> Followers</p>
+                <p><span className="bold">{Math.ceil(activeUser.weight)}</span> <span className="grey">Following</span></p>
+                <p><span className="bold">{Math.ceil(activeUser.height)}</span> <span className="grey">Followers</span></p>
             </div>
 
             <div className="tabs">

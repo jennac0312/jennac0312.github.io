@@ -35,13 +35,13 @@ const Searching = () => {
         { recentSearched.length === 0 ? 
         
         <div className="top center">
-            <h3 className='center'>NO RECENT SEARCHES</h3>
+            <h3 className='center noRecents'>NO RECENT SEARCHES</h3>
         </div>
         :
         <>
         <div className="top">
             <h3>Recent searches</h3>
-            <p onClick={() => setRecentSearched([])}>✖️</p>
+            <p onClick={() => setRecentSearched([])} className='hover'>✖️</p>
         </div>
         <div className="recents">
             { recentSearched?.toReversed().map((search, index) => {

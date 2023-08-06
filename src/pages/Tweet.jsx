@@ -97,7 +97,7 @@ const Tweet = () => {
                     <p className='grey'>•</p>
                     <p className="views"><span className="bold">112K</span> <span className="grey">Views</span></p>
                 </div>
-                <hr />
+                {/* <hr /> */}
                 
                 <div className="stats">
                     <p><span className="bold">686</span> <span className="grey">Reposts</span></p>
@@ -105,7 +105,7 @@ const Tweet = () => {
                     <p><span className="bold">2,329</span> <span className="grey">Likes</span></p>
                     <p><span className="bold">119</span> <span className="grey">Bookmarks</span></p>
                 </div>
-                <hr />
+                {/* <hr /> */}
 
                 <div className="reactions">
                     <p className='hover'>💬</p>
@@ -114,7 +114,7 @@ const Tweet = () => {
                     <p className='hover'>🔖</p>
                     <p className='hover'>⤴️</p>
                 </div>
-                <hr className="full" />
+                {/* <hr className="full" /> */}
                 { comments.length > 0 ? 
                 <div className="comments">
                     { comments.toReversed().map((comment, index) => {
@@ -148,12 +148,12 @@ const Tweet = () => {
                                         <p className='hover'>💬</p>
                                         <p className='hover'>🔁</p>
                                         <p className='hover'>💜</p>
-                                        <p className='hover'>📊</p>
+                                        <p className='hover'>🔖</p>
                                         <p className='hover'>⤴️</p>
                                     </div>
                                 </div>
                             </div>
-                            <hr className='full'/>
+                            {/* <hr className='full'/> */}
                             </>
                         )
                     }) }

@@ -89,11 +89,11 @@ const OtherProfile = () => {
             <p className="bio">{clickedProfile.company.title} in {clickedProfile.company.department}</p>
   
             <div className="bottom">
-              <p className='location'><span>🌎 {clickedProfile.address.city}, {clickedProfile.address.state}</span> <span className="joined grey">📆 {clickedProfile.birthDate}</span></p>
+              <p className='location'><span>🌎 {clickedProfile.address.city}, {clickedProfile.address.state}</span> <span className="joined grey">🎈Born {clickedProfile.birthDate}</span></p>
             
               <div className="follow">
-                  <p><span className="bold">{Math.ceil(clickedProfile.weight)}</span> Following</p>
-                  <p><span className="bold">{Math.ceil(clickedProfile.height)}</span> Followers</p>
+                <p><span className="bold">{Math.ceil(clickedProfile.weight)}</span> <span className="grey">Following</span></p>
+                <p><span className="bold">{Math.ceil(clickedProfile.height)}</span> <span className="grey">Followers</span></p>
               </div>
   
               <div className="tabs">

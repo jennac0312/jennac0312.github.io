@@ -18,10 +18,11 @@ const Menu = ( { parent } ) => {
         navigate('/profile')
     }
 
-    useEffect(() => {
+    const changeMode = () => {
+      setLightMode(!lightMode)
       console.log('changing mode')
       document.querySelector('body').classList.toggle('invert')
-    }, [lightMode])
+    }
 
   return (
     <div className='menuContainer'>
@@ -46,7 +47,6 @@ const Menu = ( { parent } ) => {
         <p className="hover" ><span className='icon'>📃</span><span className='bold'>Lists</span></p>
         <p className="hover" ><span className='icon'>🎙️</span><span className='bold'>Spaces</span></p>
       </nav>
-        <hr />
       <div className="extra">
         <p onClick={() => setShowTools(!showTools)} className='bold hover'>
             <span>Professional Tools</span>
@@ -71,7 +71,7 @@ const Menu = ( { parent } ) => {
           </>
       }
       </div>
-      <div className="mode hover" onClick={() => setLightMode(!lightMode)}>
+      <div className="mode hover" onClick={() => changeMode()}>
         { lightMode ? '🔆' : '🌙'}
       </div>
     </div>

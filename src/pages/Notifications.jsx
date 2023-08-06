@@ -25,7 +25,7 @@ const Notifications = () => {
         </div>
         <div className='noNotifs'>
           <p className="bold">Sorry, nothing to see here — yet</p>
-          <p className="grey">Likes, mentions, reposts and a whole lot more.</p>
+          <p className="grey">Likes, mentions, reposts and a whole lot more... eventually </p>
           <img src="https://cdn-images-1.medium.com/max/688/1*82D2cg8Gpe9CVISaph6RPg.gif" alt="" className="gif" />
         </div>
 

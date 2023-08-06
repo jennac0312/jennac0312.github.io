@@ -5,7 +5,7 @@ import { AppContext } from '../contexts/app_context'
 
 const Settings = () => {
 
-    let { setShowMenu, handleSettingsClick, settingsRender, setCreateTweet } = useContext(AppContext)
+    let { setShowMenu, handleSettingsClick, settingsRender, setCreateTweet, activeUser } = useContext(AppContext)
     const navigate = useNavigate()
 
     const handleClick = (to) => {
@@ -29,7 +29,7 @@ const Settings = () => {
             <p className="back hover" onClick={() => handleClick(settingsRender)}>⬅️</p>
             <div className="stack">
                 <h3>Settings</h3>
-                <p className="grey small username">@username</p>
+                <p className="grey small username">@{activeUser.username}</p>
             </div>
                 <p className='invisible'>⬅️</p>
         </div>

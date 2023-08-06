@@ -34,15 +34,16 @@ const DMs = () => {
     }
   }, [])
 
+
   return (
     <div className='dmPage'>
       { showMenu && <Menu parent="/messages"/> }
       <div>
       <Header parent="dms" />
-        <hr />
+        {/* <hr /> */}
       <main>
-
-        { dmIds.map((dm, index) => {
+        { dmIds. length > 0 ? 
+         dmIds.map((dm, index) => {
           // sort dms
           let conversation = []
           allMessages.forEach((message) => message.dmId === dm && conversation.push(message))
@@ -59,16 +60,22 @@ const DMs = () => {
               <div className="stack">
                 <div className="top">
                   <p className='name small'>{recipient.firstName} {recipient.lastName}</p>
-                  <p className='username grey small'>@{recipient.username} </p>
                   <p className='grey small dot'>•</p>
+                  <p className='username grey small'>@{recipient.username} </p>
                   {/* <p className='grey small'>date</p> */}
                 </div>
                 <p className='grey small'>{conversation[conversation.length - 1].message}</p>
               </div>
             </div>
           )
-        }) }
-
+        }) 
+        :
+        <div className="noDms">
+          <p className="bold"><span className='username'></span> You haven't recieved any DMs yet</p>
+          <p className="grey">Start a conversation</p>
+          <img src="https://cdn-images-1.medium.com/max/688/1*82D2cg8Gpe9CVISaph6RPg.gif" alt="" className="gif" />
+        </div>
+        }
       </main>
       <Footer />
     </div>

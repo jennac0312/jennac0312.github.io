@@ -90,7 +90,7 @@ const Message = () => {
         <div className='message'>
           <div>
           <Header parent="message" setAllMessages={setAllMessages}/>
-            <hr />
+            {/* <hr /> */}
           <main ref={ref}>
 
             {/* { array.map((element, index) => {

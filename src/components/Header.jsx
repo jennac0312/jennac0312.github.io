@@ -101,8 +101,8 @@ const Header = ( { parent, setAllMessages } ) => {
             <header>
                 <div className="top">
                     <p className="back icon hover" onClick={() => navigate(-1)}>⬅️</p>
-                    <img src={clickedMessage.image} alt="" className='avatar'/>
-                    <p className='info icon hover' onClick={() => setAllMessages([])}>💡</p>
+                    <img src={clickedMessage.image} alt="" className='avatar' onClick={() => navigate(`/profile/${clickedMessage?.username}`)}/>
+                    <p className='info icon hover' onClick={() => setAllMessages([])}>🗑️</p>
                     {/* onClick={() => navigate('/settings')} */}
                 </div>
                 <div className="bottom">
