@@ -5,11 +5,30 @@ import { AppContext } from '../contexts/app_context'
 const CreateTweet = () => {
 
     const navigate = useNavigate()
-    let { setCreateTweet, activeUser, tweet, setTweet, allPosts, setAllPosts } = useContext(AppContext)
+    let { setCreateTweet, activeUser, userTweets, setUserTweets, allPosts, setAllPosts } = useContext(AppContext)
 
-    const [ tweetText, setTweetText ] = useState("")
+    const random = () => {
+        return Math.ceil( Math.random() * 10 )
+    }
+    const [ tweet, setTweet ] = useState({
+        body: '',
+        // id: userTweets?.length++,
+        reactions: random(), //stays the same till page reload
+        tags: [],
+        title: '',
+        userId: activeUser.id,
+        elapsedTime: new Date()
+    })
+    console.log(tweet.elapsedTime)
 
-    // let tweetText = ""
+    const post = () => {
+        console.log('sending tweet')
+        setUserTweets( [...userTweets, tweet ] )
+        setCreateTweet(false)
+        console.log(tweet)
+        navigate(`/home`)
+        console.log('USER TWEETS',userTweets)
+    }
 
     // console.log(allPosts[0])
     const handleClick = () => {
@@ -17,35 +36,6 @@ const CreateTweet = () => {
         setCreateTweet(false)
     }
 
-    const post = () => {
-        // grab tweet value
-        // console.log(tweet)
-        console.log('%cPOSTING', 'color: red; font-size: 20px')
-        console.log(tweetText)
-        setTweet(
-            {
-                body: tweetText,
-                id: allPosts.length++,
-                reactions: 0,
-                tags: [],
-                title: '',
-                userId: activeUser.id,
-            }
-        )
-
-        console.log('TWEEEEET',tweet)
-        // add to all posts
-        if( tweet ) {
-            console.log('%cadding to posts', 'color:lime')
-            setAllPosts([...allPosts, tweet])
-            console.log(allPosts)
-        }
-        
-        // filter out undeifned posts
-        
-        setAllPosts(allPosts.filter((post) => typeof post !== undefined))
-        console.log(allPosts)
-    }
 
   return (
     <div className='createTweet'>
@@ -69,7 +59,7 @@ const CreateTweet = () => {
                     name="" id="" 
                     placeholder={`What's happening?`} 
                     autoFocus 
-                    onChange={(e) => setTweetText(e.target.value)}
+                    onChange={(e) => tweet.body = (e.target.value)}
                     />
 
                 </div>

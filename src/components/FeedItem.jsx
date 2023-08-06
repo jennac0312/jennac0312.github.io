@@ -3,8 +3,20 @@ import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../contexts/app_context'
 
 const FeedItem = ( {user, post} ) => {
+
+    const [ currentTime, setCurrentTime ] = useState(new Date())
+
+
     useEffect(() => {
         // console.log('POST', post) 
+        // console.log(currentTime)
+        // let timer = setInterval(() => {
+        //     setCurrentTime( new Date() )
+        //     console.count(currentTime)
+        // }, 30000);
+        // return() => {
+        //     clearInterval(timer)
+        // }
     }, [])
 
     let { setClickedTweet, setClickedProfile } = useContext(AppContext)
@@ -30,13 +42,13 @@ const FeedItem = ( {user, post} ) => {
   return (
     <div className='feedItem'>
         <div className="left hover" onClick={() => handleClick('PROFILE', `/profile/${user.username}`)}>
-            <img src={user.image} alt="" className='avatar' />
+            <img src={user?.image} alt="" className='avatar' />
         </div>
         <div className="right small hover">
             <div className="top" onClick={() => handleClick('TWEET', `/tweet/${user.username}`)}>
                 <div className="">
-                    <p className="name bold">{user.firstName}</p>
-                    <p className="username grey">@{user.username}</p>
+                    <p className="name bold">{user?.firstName}</p>
+                    <p className="username grey">@{user?.username}</p>
                     <p className="time grey">• 3h</p>
                 </div>
                 <p className="dots">⋯</p>

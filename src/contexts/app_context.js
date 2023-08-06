@@ -10,16 +10,7 @@ const AppContextProvider = (props) => {
     const [ isLoading, setIsLoading ] = useState(true)
     const [ showMenu, setShowMenu ] = useState(false) // toggle menu
     const [ createTweet, setCreateTweet ] = useState(false) // get rid of circle
-    const [ tweet, setTweet ] = useState(
-        {
-            // body: '',
-            id: 'num',
-            reactions: 0,
-            tags: [],
-            title: '',
-            userId: {},
-        }
-    )
+    const [ userTweets, setUserTweets ] = useState([]) // holds all created tweets
 
     const [ profileRender, setProfileRender ] = useState("") // for back button in profile
     const [ settingsRender, setSettingsRender ] = useState("") //for back button in settings
@@ -53,7 +44,8 @@ const AppContextProvider = (props) => {
     }
 
     const fetchPosts = async () => {
-        const response = await axios.get('https://dummyjson.com/posts?limit=150')
+        console.log('%cFETCHING POSTS', 'color:purple; font-size: 20px')
+        const response = await axios.get('https://dummyjson.com/posts?limit=3')
             // .then(res => res.json())
             // .then(console.log);
         console.log('POSTS FETCH DATA', response.data.posts)
@@ -69,6 +61,7 @@ const AppContextProvider = (props) => {
     }
 
     const fetchProfilePosts = async (userId) => {
+
         if(userId === undefined) return
         const response = await axios.get(`https://dummyjson.com/posts/user/${userId}`)
 
@@ -134,7 +127,7 @@ const AppContextProvider = (props) => {
             isLoading, setIsLoading,
             showMenu, setShowMenu, lightMode, setLightMode,
             setCreateTweet, createTweet,
-            tweet, setTweet,
+            userTweets, setUserTweets,
             profileRender, setProfileRender,
             users, activeUser,
 
@@ -153,7 +146,9 @@ const AppContextProvider = (props) => {
 
             fetchCommentsForPost, comments, setComments,
 
-            profilePosts
+            profilePosts,
+
+            fetchUsers, fetchPosts, fetchProfilePosts
         }}>
 
             {props.children}
