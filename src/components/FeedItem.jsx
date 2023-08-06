@@ -48,7 +48,7 @@ const FeedItem = ( {user, post} ) => {
             <div className="top" onClick={() => handleClick('TWEET', `/tweet/${user.username}`)}>
                 <div className="">
                     <p className="name bold">{user?.firstName}</p>
-                    <p className="username grey">@{user?.username}</p>
+                    <p className="username grey bold">@{user?.username}</p>
                     <p className="time grey">• 3h</p>
                 </div>
                 <p className="dots">⋯</p>

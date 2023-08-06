@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
 
-  let { showMenu, getRandomSpacePics, spacePics, setClickedStory } = useContext(AppContext)
+  let { showMenu, getRandomSpacePics, spacePics, setClickedStory, fetchNasa } = useContext(AppContext)
 
   const [ count, setCount ] = useState(0)
   const tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -42,9 +42,10 @@ const Search = () => {
             <p onClick={() => setCount(4)} className={count === 4 && 'underline'}>Entertainment</p>
           </div>
 
-          <div className="video" >
-            <h3>random video</h3>
-            <p className='video-text'>Text in bottom left corner</p>
+          <div className="video" style={{ backgroundImage : `url(${randomSpace[0]?.hdurl})`}}>
+            {/* <h3>random video</h3> */}
+            <p className='video-text'>{randomSpace[0]?.title}</p>
+            {/* <p className="explanation small">{randomSpace[0].explanation}</p> */}
           </div>
 
           <div className="trending">
@@ -87,7 +88,7 @@ const Search = () => {
                 return (
                   <div className="story" key={index} onClick={() => handleClick(pic)}>
                     <img src={pic.hdurl} alt="" className='space'/>
-                    <p className='play'>▶️</p>
+                    <p className='play hover'>▶️</p>
                   </div>
                 )
               }) }

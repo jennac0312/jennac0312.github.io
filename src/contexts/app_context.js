@@ -11,6 +11,7 @@ const AppContextProvider = (props) => {
     const [ showMenu, setShowMenu ] = useState(false) // toggle menu
     const [ createTweet, setCreateTweet ] = useState(false) // get rid of circle
     const [ userTweets, setUserTweets ] = useState([]) // holds all created tweets
+    const [ userLikes, setUserLikes ] = useState([]) // holds liked tweets
 
     const [ profileRender, setProfileRender ] = useState("") // for back button in profile
     const [ settingsRender, setSettingsRender ] = useState("") //for back button in settings
@@ -124,14 +125,20 @@ const AppContextProvider = (props) => {
         return pics
     }
 
+    const fetchNaturePics = async () => {
+        const response = await axios.get('https://api.api-ninjas.com/v1/randomimage?category=nature')
+
+        console.log(response)
+    }
+
     // EFFECTS
     useEffect(() => {
-        fetchNasa()
         fetchUsers()
         console.log('USERS', users)
         fetchPosts()
         console.log('POSTS', allPosts)
         fetchProfilePosts()
+        fetchNasa()
     }, [])
     
     // grab comments when tweet is clicked
@@ -166,6 +173,8 @@ const AppContextProvider = (props) => {
             userTweets, setUserTweets,
             profileRender, setProfileRender,
             users, activeUser,
+            
+            userLikes, setUserLikes,
 
             search, setSearch, searchResults, setSearchResults, recentSearched, setRecentSearched,
 
@@ -185,6 +194,8 @@ const AppContextProvider = (props) => {
             profilePosts,
 
             fetchUsers, fetchPosts, fetchProfilePosts,
+
+            fetchNasa,
 
             spacePics, getRandomSpacePics,
             clickedStory, setClickedStory

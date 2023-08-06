@@ -377,6 +377,8 @@ main{
   /* display: flex; */
   /* padding-left: 20px; */
   margin-left: 0;
+  /* border: 4px solid yellow; */
+  min-width: 315px;
 }
 .feedItem .right .top{
   display: flex;
@@ -578,15 +580,17 @@ main{
   border: 1px solid lime;
   height: 220px;
   text-align: center;
+  background-size: 100% 100%;
 }
 
 .video-text{
+  background-color: rgba(0, 0, 0, 0.712);
   /* position: absolute;
   bottom: 65%;
   left: 3%; */
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: fit-content;
-  margin-top: 170px;
+  margin-top: 190px;
   margin-left: 10px;
 }
 
