@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import Header from '../components/Header'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 
 const Tweet = () => {
 
-    let { clickedTweet, setClickedProfile, comments, setComments, users, activeUser } = useContext(AppContext)
+    let { clickedTweet, setClickedProfile, comments, setComments, users, activeUser, setCreateTweet } = useContext(AppContext)
 
     const [ isTyping, setIsTyping ] = useState(false)
     const [ message, setMessage] = useState({user: {...activeUser}, body: [], id: activeUser.id, postId: clickedTweet.post.id })
@@ -44,6 +44,7 @@ const Tweet = () => {
         // console.log('COMMENTSSSSS', comments)
 
         if(message.body === "") return
+        if(e.target.value === "") return
         if(e.key !== "Enter") return
         if(e.key === "Enter"){
             setComments([...comments, message])
@@ -51,9 +52,23 @@ const Tweet = () => {
             console.log('ALLLLLL COMMMENTSSSSSSSS', allComments)
             console.log(comments)
             e.target.value = ""
+            // message.body = ""
             console.log(e.target.value)
         }
     }
+
+    const clickDots = (comment) => {
+        console.log('DOTSSSSSSSS')
+        console.log(comment)
+    }
+
+    useEffect(() => {
+        setCreateTweet(true)
+
+        return() => {
+            setCreateTweet(false)
+        }
+    }, [])
 
   return (
     <div className='tweetPage'>
@@ -100,9 +115,9 @@ const Tweet = () => {
                     <p className='hover'>⤴️</p>
                 </div>
                 <hr className="full" />
-
+                { comments.length > 0 ? 
                 <div className="comments">
-                    { comments.map((comment, index) => {
+                    { comments.toReversed().map((comment, index) => {
                         // console.log('commenttttt',comment)
                         // console.log('comment userrrr',comment.user)
                         // console.log('user index with comment id',users[comment.user.id-1])
@@ -124,7 +139,7 @@ const Tweet = () => {
                                             <p className="username grey bold">@{comment.user.username}</p>
                                             <p className='grey'>• 23h</p>
                                         </div>
-                                        <p className="dots">⋯</p>
+                                        <p className="dots hover" onClick={() => clickDots(comment)}>⋯</p>
                                     </div>
                                     <div className="body">
                                         <p>{comment.body}</p>
@@ -144,6 +159,13 @@ const Tweet = () => {
                     }) }
 
                 </div>
+                :
+                <div className="comments noComments">
+                    <p className="bold"><span className='username'>@{clickedTweet.user.username}</span> hasn't recieved any comments yet</p>
+                    <p className="grey">Start a conversation</p>
+                    <img src="https://cdn-images-1.medium.com/max/688/1*82D2cg8Gpe9CVISaph6RPg.gif" alt="" className="gif" />
+                </div>
+                 }
             </div>
         </main>
         <div className="inputContainer">

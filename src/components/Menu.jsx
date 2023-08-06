@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../contexts/app_context'
 import { useNavigate } from 'react-router-dom'
 
@@ -18,6 +18,11 @@ const Menu = ( { parent } ) => {
         navigate('/profile')
     }
 
+    useEffect(() => {
+      console.log('changing mode')
+      document.querySelector('body').classList.toggle('invert')
+    }, [lightMode])
+
   return (
     <div className='menuContainer'>
         {/* <h1>menu</h1> */}
@@ -27,13 +32,13 @@ const Menu = ( { parent } ) => {
         </div>
 
         <p className='bold name'>{activeUser.firstName} {activeUser.lastName}</p>
-        <p className='grey atName'>@{activeUser.username}</p>
+        <p className='grey atName bold'>@{activeUser.username}</p>
 
         <div className="bottom">
-            <p>{ Math.ceil(activeUser.weight) } <span className='grey'>Following</span></p>
-            <p>{ Math.ceil(activeUser.height) } <span className='grey'>Followers</span></p>
+            <p>{ Math.ceil(activeUser.weight) } <span className='grey bold'>Following</span></p>
+            <p>{ Math.ceil(activeUser.height) } <span className='grey bold'>Followers</span></p>
         </div>
-      
+        
       <nav>
         <p  className="hover" onClick={() => handleClick()}><span className='icon'>👤</span><span className='bold'>Profile</span></p>
         <p><span className='icon'>🫐</span><span className='bold'>Twitter Blue</span></p>

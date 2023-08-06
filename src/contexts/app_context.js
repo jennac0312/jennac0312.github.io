@@ -19,6 +19,7 @@ const AppContextProvider = (props) => {
 
     const [ users, setUsers ] = useState([])
     const [ activeUser, setActiveUser ] = useState(users[3])
+    const [ backgroundImg, setBackgroundImg ] = useState("")
     const [ clickedProfile, setClickedProfile ] = useState({})
     const [ search, setSearch ] = useState("") // for searching page
     const [ searchResults, setSearchResults ] = useState([])
@@ -48,7 +49,7 @@ const AppContextProvider = (props) => {
 
     const fetchPosts = async () => {
         console.log('%cFETCHING POSTS', 'color:purple; font-size: 20px')
-        const response = await axios.get('https://dummyjson.com/posts?limit=3')
+        const response = await axios.get('https://dummyjson.com/posts?limit=150')
             // .then(res => res.json())
             // .then(console.log);
         console.log('POSTS FETCH DATA', response.data.posts)
@@ -141,6 +142,13 @@ const AppContextProvider = (props) => {
         fetchNasa()
     }, [])
     
+    useEffect(() => {
+        setBackgroundImg( getRandomSpacePics(1)[0]?.url )
+        document.querySelectorAll('.avatar').forEach((avatar) => {
+            avatar.setAttribute('style', `backgroundImage : url(${getRandomSpacePics(1)[0]?.url})`)
+        })
+    }, [spacePics])
+    
     // grab comments when tweet is clicked
     // wish you would stop running on mount and only run when clickedTweet changes like you're supposed to
     useEffect(() => {
@@ -173,7 +181,9 @@ const AppContextProvider = (props) => {
             userTweets, setUserTweets,
             profileRender, setProfileRender,
             users, activeUser,
-            
+
+            backgroundImg,
+
             userLikes, setUserLikes,
 
             search, setSearch, searchResults, setSearchResults, recentSearched, setRecentSearched,
@@ -198,7 +208,9 @@ const AppContextProvider = (props) => {
             fetchNasa,
 
             spacePics, getRandomSpacePics,
-            clickedStory, setClickedStory
+            clickedStory, setClickedStory,
+
+            getRandomIntInclusive
         }}>
 
             {props.children}

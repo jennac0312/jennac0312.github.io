@@ -19,7 +19,7 @@ const Home = () => {
 
       { showMenu && <Menu parent="/home"/> }
 
-      <div>
+      <div style={{ opacity : showMenu ? '.3' : '1', backgroundColor: showMenu ? 'slategrey' : 'black'}}>
         <Header parent="home"/>
 
         <main>

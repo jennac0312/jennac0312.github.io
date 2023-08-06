@@ -22,6 +22,10 @@ body{
   overflow: hidden;
 }
 
+.invert {
+  filter: invert(.9) !important;
+}
+
 ::-webkit-scrollbar{
   display: none;
 }
@@ -45,6 +49,11 @@ body{
 }
 
 /* GENERAL ------------------------------------------------------------ */
+.avatar{
+  background-size: 100% 100% !important; 
+  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+
+}
 button:hover{
   cursor: pointer;
 }
@@ -93,6 +102,11 @@ a{
   z-index: 20;
   bottom: 80px;
   right: 10px;
+  opacity: .9;
+}
+
+.circle:hover{
+  opacity: 1;
 }
 
 .bold{
@@ -177,39 +191,43 @@ header .logo{
 
 /* FOOTER ------------------------------------------------------------- */
 footer{
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
   display: flex;
   /* z-index: ; */
   /* position: absolute; */
   top: 800px;
   min-width: 390px;
   /* margin-top: -82px; */
-  /* background-color: rgba(0, 0, 0, 0.938) !important; */
-  background-color: white;
+  background-color: rgba(95, 93, 93, 0.24) !important;
+  /* background-color: white; */
   overflow: hidden;
-  max-height: 45px;
+  height: fit-content !important;
 }
 
 footer p{
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 5px;
   font-size: 30px;
-  margin: 0 17.5px;
+  margin: 0 7px;
   height: 100%;
+  padding: 02px 10.5px;
 }
 
 footer .mail{
-  /* margin-top: -2px; */
-  /* padding-bottom: 2px; */
+  margin-top: -3px;
+  /* padding-bottom: 8px !important; */
 }
 
 
 footer p:hover{
   cursor: pointer;
+  background-color: rgb(51, 51, 51);
 }
 
 /* MENU --------------------------------------------------------------- */
 .menuContainer{
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
+  border-right: 2px solid rgba(128, 128, 128, 0.877);
   min-width: 290px;
   /* flex-grow: 5; */
 }
@@ -219,8 +237,9 @@ footer p:hover{
 }
 
 .menuContainer .top{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 20px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -246,21 +265,23 @@ footer p:hover{
 }
 
 .menuContainer .bottom {
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
   width: 60%;
   display: flex;
   justify-content: space-between;
   font-size: .8em;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .menuContainer nav {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   margin: 20px 0;
 }
 
 .menuContainer nav p {
-  border: 1px solid lime;
+  /* border: 1px solid lime; */
+  border-radius: 10px;
   margin: 10px 0;
   display: flex;
   align-items: center;
@@ -270,7 +291,8 @@ footer p:hover{
   background-color: rgb(51, 51, 51);
 }
 .menuContainer .icon {
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  margin-left: 10px;
   font-size: 20px;
   margin-right: 15px;
 }
@@ -323,7 +345,7 @@ footer p:hover{
 }
 
 main{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   max-width: 390px;
   height: 749px;
   /* padding-bottom: 50px; */
@@ -332,6 +354,10 @@ main{
 }
 .main *{
   /* flex-shrink: 3; */
+}
+
+.homePage main {
+  height: 748px;
 }
 
 .homePage .tabs{
@@ -368,7 +394,8 @@ main{
 
 .feedItem .avatar{
   border: 1px solid white;
-  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+  /* background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif'); */
+  background-size: 100% 100%;
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -418,9 +445,9 @@ main{
   display: flex;
   justify-content: space-between;
   height: 100px;
-  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+  /* background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif'); */
   background-size: 100% 100%;
-  /* background-image: url('https://wallpapers.com/images/hd/meet-the-robinsons-animated-building-cfeeb6j98ykrqs8u.jpg'); */
+  background-image: url('https://wallpapers.com/images/hd/meet-the-robinsons-animated-building-cfeeb6j98ykrqs8u.jpg');
   /* background-size: 100% 120%; */
 }
 .profilePage header div {
@@ -530,6 +557,11 @@ main{
 .searchPage{
   display: flex;
 }
+
+.searchPage main {
+  height: 750px !important;
+}
+
 .searchPage header{
   border: 1px solid red;
 }
@@ -793,8 +825,9 @@ main{
 }
 
 .settings .top {
-  border: 1px solid lime;
+  /* border: 1px solid lime; */
   margin-top: 10px;
+  margin-bottom: 7px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -821,12 +854,17 @@ main{
 }
 
 .settings .settingContainer{
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.settings .settingContainer:hover {
+  background-color: rgba(51, 51, 51, 0.767);
 }
 
 .settingContainer .logo{
@@ -861,7 +899,7 @@ main{
 }
 .communities main {
   margin: 0 10px;
-  max-height: 709px !important;
+  max-height: 711px !important;
 }
 .communities .flex{
   border: 1px solid lime;
@@ -875,12 +913,25 @@ main{
   margin-top: 10px;
 }
 
-.community img{
+.community:hover{
+  background-color: rgb(51, 51, 51);
+  cursor: pointer;
+}
+
+.community .left {
+  /* border: 1px solid red; */
+}
+
+.community .space{
   border: 1px solid white;
   border-radius: 10px;
-  height: 80px;
-  width: 80px;
+  height: 80px !important;
+  width: 80px !important;
   margin-right: 10px;
+}
+
+.community .right p.bold {
+  margin-top: 5px;
 }
 
 /* NOTIFICATIONS */
@@ -919,9 +970,21 @@ main{
 
 }
 
+.noNotifs {
+  margin-top: 100px;
+}
+
+.noNotifs p.grey {
+  margin-bottom: 270px;
+}
+
 /* MESSAGES DMS ------------------------------------------------------- */
 .dmPage{
   display: flex;
+}
+
+.dmPage main {
+  min-height: 707px !important;
 }
 .dmPage .menuContainer .mode {
   margin-top: 273px;
@@ -976,19 +1039,22 @@ main{
 }
 
 .dmPage .message{
-  border: 1px solid skyblue;
-  margin: 15px 10px;
+  /* border: 1px solid skyblue; */
+  border-radius: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
+  margin: 10px 0;
   display: flex;
   align-items: center;
   min-height: 60px;
   max-height: 70px;
+  padding: 5px 10px;
 }
 .dmPage .message:hover{
   background-color: rgba(51, 51, 51, 0.767);
 }
 
 .dmPage img {
-  border: 1px solid white;
+  border: 1px solid whitesmoke;
   border-radius: 50%;
   height: 50px;
   width: 50px;
@@ -1012,6 +1078,11 @@ main{
 /* MESSAGE ----------------------------------------------------------- */
 .message {
 
+}
+
+.message main {
+  height: 674px !important;
+  /* border: 2px solid yellow; */
 }
 .message header > *{
   margin: 0 10px;
@@ -1042,12 +1113,9 @@ main{
   width: 35px;
 }
 
-.message main{
-  max-height: 670px;
-}
 .message .bubble{
-  border: 1px solid gray;
-  background-color: rgba(128, 128, 128, 0.288);
+  /* border: 1px solid gray; */
+  /* background-color: rgba(128, 128, 128, 0.288); */
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -1074,7 +1142,7 @@ main{
   padding: 10px 20px;
   border-radius: 20px;
   border-bottom-left-radius: 0px ;
-  margin: 10px;
+  margin-left: 0;
 }
 
 .message input{
@@ -1241,7 +1309,7 @@ main{
   display: flex;
   justify-content: space-between;
   height: 100px;
-  background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif');
+  /* background-image: url('https://pfps.gg/assets/banners/7644-cloud-banner.gif'); */
   background-size: 100% 100%;
   /* background-image: url('https://wallpapers.com/images/hd/meet-the-robinsons-animated-building-cfeeb6j98ykrqs8u.jpg'); */
   /* background-size: 100% 120%; */
@@ -1390,18 +1458,22 @@ main{
   /* border: 1px solid lime; */
   margin: 90px 0;
 }
-.noTweets .username{
+.noTweets .username, .noComments .username{
   color: brown;
 }
-.noTweets .gif{
+.noTweets .gif, .noNotifs .gif, .noComments .gif{
   filter: invert(1);
   /* height: 100px; */
   width: 100%;
 }
 
-.noTweets p{
+.noTweets p, .noNotifs p, .noComments p{
   margin: 0 20px;
   text-align: center;
+}
+
+.noComments{
+  margin-top: 100px;
 }
 
 

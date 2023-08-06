@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../contexts/app_context'
 
-const FeedItem = ( {user, post} ) => {
+const FeedItem = ( {user, post, backgroundImg} ) => {
 
-    const [ currentTime, setCurrentTime ] = useState(new Date())
 
+    let { getRandomSpacePics } = useContext(AppContext)
+
+    // let backgroundImage = getRandomSpacePics(1)
 
     useEffect(() => {
         // console.log('POST', post) 
@@ -41,8 +43,8 @@ const FeedItem = ( {user, post} ) => {
 
   return (
     <div className='feedItem'>
-        <div className="left hover" onClick={() => handleClick('PROFILE', `/profile/${user.username}`)}>
-            <img src={user?.image} alt="" className='avatar' />
+        <div className="left hover" onClick={() => handleClick('PROFILE', `/profile/${user.username}`)} >
+            <img src={user?.image} alt="" className='avatar' style={{ backgroundImage : `url(${backgroundImg})`}}/>
         </div>
         <div className="right small hover">
             <div className="top" onClick={() => handleClick('TWEET', `/tweet/${user.username}`)}>

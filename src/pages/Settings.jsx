@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import settings from '../models/settings_model'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../contexts/app_context'
 
 const Settings = () => {
 
-    let { setShowMenu, handleSettingsClick, settingsRender } = useContext(AppContext)
+    let { setShowMenu, handleSettingsClick, settingsRender, setCreateTweet } = useContext(AppContext)
     const navigate = useNavigate()
 
     const handleClick = (to) => {
@@ -13,6 +13,14 @@ const Settings = () => {
         setShowMenu(false)
         navigate(to)
     }
+
+    useEffect(() => {
+        setCreateTweet(true)
+
+        return() => {
+            setCreateTweet(false)
+        }
+    }, [])
 
   return (
     <div className='settings'>
@@ -31,7 +39,7 @@ const Settings = () => {
 
         { settings.map((setting, index) => {
             return (
-                <div className="settingContainer" key={index}>
+                <div className="settingContainer hover" key={index}>
                     <p className='logo'>{setting.logo}</p>
 
                     <div className="middle">

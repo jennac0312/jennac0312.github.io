@@ -29,8 +29,8 @@ const Profile = ( ) => {
           </div>
 
           <div className="right">
-            <p className="search hover">🔍</p>
-            <p className="share hover">🔝</p>
+            <p className="search hover"></p>
+            <p className="share hover"></p>
           </div>
         </header>
 

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Message = () => {
 
-    let { clickedMessage, setClickedProfile, clickedProfile, activeUser, fetchReply, reply, allMessages, setAllMessages } = useContext(AppContext)
+    let { clickedMessage, setClickedProfile, clickedProfile, activeUser, fetchReply, reply, allMessages, setAllMessages, setCreateTweet } = useContext(AppContext)
 
     console.log(clickedMessage)
 
@@ -78,6 +78,13 @@ const Message = () => {
             clearInterval()
         }
     }, [reply])
+
+    useEffect(() => {
+        setCreateTweet(true)
+        return() => {
+            setCreateTweet(false)
+        }
+    }, [])
     
     return (
         <div className='message'>

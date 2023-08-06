@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { useNavigate } from 'react-router-dom'
@@ -7,10 +7,17 @@ import Menu from '../components/Menu'
 
 const DMs = () => {
 
-  let { setClickedMessage, showMenu } = useContext(AppContext)
+  let { setClickedMessage, showMenu, setCreateTweet, allMessages } = useContext(AppContext)
   const navigate = useNavigate()
 
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  console.log('ALL MESSAGES', allMessages)
+  
+    //  get all unique conversations
+    let dmIds = []
+    allMessages.forEach((message) => dmIds.push(message.dmId))
+    dmIds = ( Array.from(new Set( dmIds )) )
+    console.log(dmIds)
 
   const handleClick = (clicked, location) => {
     console.log('CLICKED MESSAGE:', clicked)
@@ -18,6 +25,14 @@ const DMs = () => {
     setClickedMessage(clicked)
     navigate(location)
   }
+
+  useEffect(() => {
+    setCreateTweet(true)
+
+    return() => {
+      setCreateTweet(false)
+    }
+  }, [])
 
   return (
     <div className='dmPage'>
@@ -27,18 +42,28 @@ const DMs = () => {
         <hr />
       <main>
 
-        { array.map((element, index) => {
+        { dmIds.map((dm, index) => {
+          // sort dms
+          let conversation = []
+          allMessages.forEach((message) => message.dmId === dm && conversation.push(message))
+          console.log(conversation)
+          let recipient = {}
+          conversation.forEach((message) => message.user.id === dm ? recipient = message.user : null )
+          console.log(recipient)
+
           return (
-            <div className="message" key={index} onClick={() => handleClick(element,`/messages/${element}`)}>
-              <img src="" alt="" className=''/>
+            <div className="message hover" key={index} 
+            onClick={() => handleClick(recipient,`/messages/${recipient.username}`)}>
+              
+              <img src={recipient.image} alt="" className='avatar'/>
               <div className="stack">
                 <div className="top">
-                  <p className='name small'>Name </p>
-                  <p className='username grey small'>@username </p>
+                  <p className='name small'>{recipient.firstName} {recipient.lastName}</p>
+                  <p className='username grey small'>@{recipient.username} </p>
                   <p className='grey small dot'>•</p>
-                  <p className='grey small'>date</p>
+                  {/* <p className='grey small'>date</p> */}
                 </div>
-                <p className='grey small'>message {element}</p>
+                <p className='grey small'>{conversation[conversation.length - 1].message}</p>
               </div>
             </div>
           )

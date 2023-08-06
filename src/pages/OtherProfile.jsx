@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 
 const OtherProfile = () => {
 
-    let { clickedProfile, profileRender, setClickedMessage } = useContext(AppContext)
+    let { clickedProfile, profileRender, setClickedMessage, getRandomSpacePics } = useContext(AppContext)
     // console.log('CLICKED PROFILE', clickedProfile)
 
     const [ count, setCount ] = useState(0)
@@ -15,6 +15,8 @@ const OtherProfile = () => {
     const [ follow, setFollow ] = useState(false)
   
     // console.log('PROFILE RENDERER: ', profileRender)
+
+    let banner = getRandomSpacePics(2)
 
     useEffect(() => {
         // console.log(follow)
@@ -64,21 +66,21 @@ const OtherProfile = () => {
     return (
       <>
         <div className='otherProfilePage'>
-          <header>
+          <header style={{ backgroundImage: `url(${banner[0]?.url})`}}>
             {/* background image */}
             <div className="left">
               <p className="back hover" onClick={() => navigate(-1) }>↩️</p>
             </div>
   
             <div className="right">
-              <p className="search hover">🔍</p>
-              <p className="share hover">🔝</p>
+              <p className="search hover"></p>
+              <p className="share hover"></p>
             </div>
           </header>
   
           <div className="otherProfileInfo">
             <div className="top">
-              <img src={clickedProfile.image} alt="" className='avatar' onClick={() => navigate(`/profile/${clickedProfile.username}/avi`)}/>
+              <img src={clickedProfile.image} alt="" className='avatar' onClick={() => navigate(`/profile/${clickedProfile.username}/avi`)} style={{ backgroundImage: `url(${banner[0]?.url})`}}/>
               { follow ? yesFollowing() : notFollowing() }
             </div>
   

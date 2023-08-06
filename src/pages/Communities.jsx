@@ -6,7 +6,7 @@ import Menu from '../components/Menu'
 
 const Communities = () => {
 
-    let { showMenu } = useContext(AppContext)
+    let { showMenu, spacePics } = useContext(AppContext)
     const arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   return (
@@ -18,13 +18,16 @@ const Communities = () => {
             <Header parent="communities" />
             <main>
                 <div className="">
-                    { arr.map((element, index) => {
+                    { spacePics.toReversed().map((space, index) => {
                         return (
                             <div className="community" key={index} >
-                                <img src="" alt="" />
+                                <div className="left">
+                                    <img src={space.url} alt="" className='space'/>
+
+                                </div>
                                 <div className="right">
-                                    <p className='bold'>Element {element} Title</p>
-                                    <p className="grey">45.5k Members</p>
+                                    <p className='bold'>Element {space.title} Title</p>
+                                    <p className="grey">{ (Math.random() * 100).toFixed(1) }K Members</p>
                                 </div>
 
                             </div>

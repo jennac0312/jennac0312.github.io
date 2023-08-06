@@ -23,6 +23,12 @@ const Notifications = () => {
           <p onClick={() => setCount(1)} className={count === 1 && 'underline'}>Verified</p>
           <p onClick={() => setCount(2)} className={count === 2 && 'underline'}>Mentions</p>
         </div>
+        <div className='noNotifs'>
+          <p className="bold">Sorry, nothing to see here — yet</p>
+          <p className="grey">Likes, mentions, reposts and a whole lot more.</p>
+          <img src="https://cdn-images-1.medium.com/max/688/1*82D2cg8Gpe9CVISaph6RPg.gif" alt="" className="gif" />
+        </div>
+
       </main>
 
       <Footer />
