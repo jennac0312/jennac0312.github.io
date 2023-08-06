@@ -626,7 +626,7 @@ main{
 }
 
 .story {
-  border: 1px solid red;
+  border: 1px solid whitesmoke;
   border-radius: 15px;
   height: 180px;
   width: 130px;
@@ -635,6 +635,49 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.space {
+  height: inherit;
+  width: inherit;
+  border-radius: 15px;
+}
+
+.story .play{
+  position: absolute;
+  filter: invert(1);
+}
+
+/* STORY PAGE ------------------------------------------------------ */
+.storyPage{
+  border: 1px solid red;
+  display: flex;
+  position: relative;
+}
+
+.storyPage .exit{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.storyPage div {
+  margin: auto;
+  border: 1px solid lime;
+  /* height: 400px; */
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.storyPage img {
+  /* transform: rotate(90deg); */
+  /* height: inherit; */
+  width: inherit;
+  margin-bottom: 10px;
 }
 
 /* SEARCHING ---------------------------------------------------------- */

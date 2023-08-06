@@ -25,6 +25,8 @@ const AppContextProvider = (props) => {
     const [ clickedMessage, setClickedMessage ] = useState({}) // for dms
     const [ reply, setReply ] = useState({message: '', user:{} }) // for dm response
     const [ allMessages, setAllMessages ] = useState([]) //to keep dm convo
+    const [ spacePics, setSpacePics ] = useState([]) // for space api
+    const [ clickedStory, setClickedStory ] = useState({})
 
 
     const [ clickedTweet, setClickedTweet ] = useState({})
@@ -89,8 +91,42 @@ const AppContextProvider = (props) => {
         setReply({message: response.data.quote, user: clickedMessage, dmId: clickedMessage.id})
     }
 
+    const fetchNasa = async () => {
+        const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_KEY}&count=20`)
+
+        // console.log(process.env.REACT_APP_NASA_KEY)
+
+
+        console.log(response.data)
+
+        // add each img to array
+        // response.data.photos.forEach((photo) => {
+        //     setSpacePics([...spacePics, photo.img_src])
+        // })
+
+        setSpacePics(response.data)
+
+        // console.log(spacePics)
+    }
+
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+      } // from mdn
+
+
+    const getRandomSpacePics = (howMany) => {
+        let pics = []
+        for(let i = 0; i < howMany; i++){
+            pics.push(spacePics[getRandomIntInclusive(0, spacePics.length) - 1])
+        }
+        return pics
+    }
+
     // EFFECTS
     useEffect(() => {
+        fetchNasa()
         fetchUsers()
         console.log('USERS', users)
         fetchPosts()
@@ -148,7 +184,10 @@ const AppContextProvider = (props) => {
 
             profilePosts,
 
-            fetchUsers, fetchPosts, fetchProfilePosts
+            fetchUsers, fetchPosts, fetchProfilePosts,
+
+            spacePics, getRandomSpacePics,
+            clickedStory, setClickedStory
         }}>
 
             {props.children}

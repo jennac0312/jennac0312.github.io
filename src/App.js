@@ -17,11 +17,12 @@ import OtherProfile from './pages/OtherProfile';
 import ProfilePicture from './pages/ProfilePicture';
 import CreateTweet from './pages/CreateTweet';
 import Circle from './components/Circle';
+import Story from './pages/Story';
 
 
 function App() {
 
-  let { isLoading, clickedMessage, clickedTweet, clickedProfile, showMenu, createTweet } = useContext(AppContext)
+  let { isLoading, clickedMessage, clickedTweet, clickedProfile, showMenu, createTweet, clickedStory } = useContext(AppContext)
 
 
   return (
@@ -45,6 +46,9 @@ function App() {
         <Route path={`/tweet/${clickedTweet?.user?.username}`} element={<Tweet key={clickedTweet?.user?.id}/>}/>
         <Route path={`/profile/${clickedProfile?.username}`} element={<OtherProfile />}/>
         <Route path={`/profile/${clickedProfile?.username}/avi`} element={<ProfilePicture />}/>
+        <Route path={`/story/${clickedStory?.title?.replaceAll(' ','')}`} element={<Story />}/>
+  
+
       </Routes>
 
       { !showMenu && !createTweet && !isLoading && <Circle symbol="plus"/>}

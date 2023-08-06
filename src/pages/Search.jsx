@@ -3,13 +3,27 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Menu from '../components/Menu'
 import { AppContext } from '../contexts/app_context'
+import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
 
-  let { showMenu } = useContext(AppContext)
+  let { showMenu, getRandomSpacePics, spacePics, setClickedStory } = useContext(AppContext)
 
   const [ count, setCount ] = useState(0)
   const tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const navigate = useNavigate()
+
+  let randomSpace = getRandomSpacePics(1)
+  // let pic = randomSpace[0].hdurl
+  console.log(randomSpace)
+
+  // let spacePics = getSpacePics(10)
+  console.log('SPACE PICCCCCCCCSSSSSSSSSS',spacePics)
+
+  const handleClick = (what) => {
+    navigate(`/story/${what.title.replaceAll(' ','')}`)
+    setClickedStory(what)
+  }
 
   return (
     
@@ -28,7 +42,7 @@ const Search = () => {
             <p onClick={() => setCount(4)} className={count === 4 && 'underline'}>Entertainment</p>
           </div>
 
-          <div className="video">
+          <div className="video" >
             <h3>random video</h3>
             <p className='video-text'>Text in bottom left corner</p>
           </div>
@@ -69,10 +83,11 @@ const Search = () => {
             <p className='small grey'>check out these popular and trending videos for you</p>
 
             <div className="storiesContainer">
-              { tempArray.map((element, index) => {
+              { spacePics.map((pic, index) => {
                 return (
-                  <div className="story" key={index}>
-                    <p>{element}▶️</p>
+                  <div className="story" key={index} onClick={() => handleClick(pic)}>
+                    <img src={pic.hdurl} alt="" className='space'/>
+                    <p className='play'>▶️</p>
                   </div>
                 )
               }) }
