@@ -27,6 +27,7 @@ const CreateTweet = () => {
     // console.log(tweet.elapsedTime)
     
     const post = () => {
+        if (tweet.body === "" ) return
         console.log('sending tweet')
         setUserTweets( [...userTweets, tweet ] )
         setCreateTweet(false)
