@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 
 const Story = () => {
 
-    let { clickedStory } = useContext(AppContext)
+    let { clickedStory, setCreateTweet } = useContext(AppContext)
     const navigate = useNavigate()
 
     useEffect(() => {
-
+      setCreateTweet(true)
       console.log('countdown 5 secs')
       setTimeout(() => {
         navigate('/search')
@@ -17,6 +17,7 @@ const Story = () => {
       return() => {
         console.log('timeout cleared')
         clearTimeout()
+        setCreateTweet(false)
       }
 
     }, [])
@@ -24,6 +25,7 @@ const Story = () => {
   return (
     <div className='storyPage'>
         <p className="exit hover" onClick={() => navigate(-1)}>✖️</p>
+        <div className="progressBar"></div>
         <div className="">
             <img src={clickedStory.url} alt={clickedStory.title} />
             <p>{clickedStory.title}</p>
