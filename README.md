@@ -10,6 +10,7 @@
 
 <h3>UNSOLVED PROBLEMS</h3>
 <p>Auto scroll messages</p>
+<p>Search Features</p>
 
 <h3>POST MVP</h3>
 <p>Functioning tabs for news feed, search and profile</p>
