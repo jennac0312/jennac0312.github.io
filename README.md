@@ -10,10 +10,10 @@
 
 <h3>FEATURES</h3>
 <p>Portal loading screen </p>
-<p>Scrollable Pages/p>
-<p>Create Tweets/p>
-<p>Create Comments/p>
-<p>DM users/p>
+<p>Scrollable Pages</p>
+<p>Create Tweets</p>
+<p>Create Comments</p>
+<p>DM users</p>
 <p>Search Users</p>
 <p>Clickable Stories</p>
 
