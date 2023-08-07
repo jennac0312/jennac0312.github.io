@@ -16,7 +16,8 @@ const Loading = () => {
     
   return (
     <div className='loadingPage'>
-        <img src="https://i.imgur.com/v3vVIEh.gif" alt="" />
+        {/* <img src="https://i.imgur.com/v3vVIEh.gif" alt="" /> */}
+        <img src="https://cdna.artstation.com/p/assets/images/images/031/538/850/original/petro-kosariekov-portal-gun-rick-and-morty2-2.gif?1603902186" alt="" />
     </div>
   )
 }

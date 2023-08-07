@@ -13,7 +13,7 @@ const Header = ( { parent, setAllMessages } ) => {
     useEffect(() => {
         return() => {
             setSearch(null)
-            console.log(`%cSEARCHING FOR : ${search}`, 'color:red; font-size:40px')
+            // console.log(`%cSEARCHING FOR : ${search}`, 'color:red; font-size:40px')
         }
     }, [])
 

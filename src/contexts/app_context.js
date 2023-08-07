@@ -48,11 +48,11 @@ const AppContextProvider = (props) => {
     }
 
     const fetchPosts = async () => {
-        console.log('%cFETCHING POSTS', 'color:purple; font-size: 20px')
+        // console.log('%cFETCHING POSTS', 'color:purple; font-size: 20px')
         const response = await axios.get('https://dummyjson.com/posts?limit=150')
             // .then(res => res.json())
             // .then(console.log);
-        console.log('POSTS FETCH DATA', response.data.posts)
+        // console.log('POSTS FETCH DATA', response.data.posts)
         setAllPosts(response.data.posts)
     }
 
@@ -60,7 +60,7 @@ const AppContextProvider = (props) => {
         if(postId === undefined) return
         const response = await axios.get(`https://dummyjson.com/comments/post/${postId}`)
 
-        console.log(`COMMENTS FOR POST ${postId}`,response.data.comments)
+        // console.log(`COMMENTS FOR POST ${postId}`,response.data.comments)
         setComments(response.data.comments)
     }
 
@@ -69,14 +69,14 @@ const AppContextProvider = (props) => {
         if(userId === undefined) return
         const response = await axios.get(`https://dummyjson.com/posts/user/${userId}`)
 
-        console.log('POSTS FOR PROFILE', response.data.posts)
+        // console.log('POSTS FOR PROFILE', response.data.posts)
         setProfilePosts(response.data.posts)
     }
 
     const fetchSearchedUsers = async () => {
         const response = await axios.get(`https://dummyjson.com/users/search?q=${search}`)
 
-        console.log(response.data.users)
+        // console.log(response.data.users)
         setSearchResults(response.data.users)
     }
 
@@ -89,7 +89,7 @@ const AppContextProvider = (props) => {
             response = await axios.get(`https://api.kanye.rest/`)
         }
 
-        console.log(response.data.quote)
+        // console.log(response.data.quote)
         setReply({message: response.data.quote, user: clickedMessage, dmId: clickedMessage.id})
     }
 
@@ -99,7 +99,7 @@ const AppContextProvider = (props) => {
         // console.log(process.env.REACT_APP_NASA_KEY)
 
 
-        console.log(response.data)
+        // console.log(response.data)
 
         // add each img to array
         // response.data.photos.forEach((photo) => {
@@ -126,18 +126,13 @@ const AppContextProvider = (props) => {
         return pics
     }
 
-    const fetchNaturePics = async () => {
-        const response = await axios.get('https://api.api-ninjas.com/v1/randomimage?category=nature')
-
-        console.log(response)
-    }
 
     // EFFECTS
     useEffect(() => {
         fetchUsers()
-        console.log('USERS', users)
+        // console.log('USERS', users)
         fetchPosts()
-        console.log('POSTS', allPosts)
+        // console.log('POSTS', allPosts)
         fetchProfilePosts()
         fetchNasa()
     }, [])

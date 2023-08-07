@@ -6,10 +6,9 @@ const Feed = ( {parent} ) => {
 
     let { users, allPosts, profilePosts, clickedProfile, userTweets, spacePics, getRandomIntInclusive } = useContext(AppContext)
 
-    let array = [1,2,3,4,5]
-    console.log('ALL POSTS', allPosts)
-    console.log('USER POSTS', userTweets)
-    console.log(spacePics)
+    // console.log('ALL POSTS', allPosts)
+    // console.log('USER POSTS', userTweets)
+    // console.log(spacePics)
 
     const home = () => {
         return (

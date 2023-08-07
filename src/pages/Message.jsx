@@ -8,25 +8,25 @@ const Message = () => {
 
     let { clickedMessage, setClickedProfile, clickedProfile, activeUser, fetchReply, reply, allMessages, setAllMessages, setCreateTweet } = useContext(AppContext)
 
-    console.log(clickedMessage)
+    // console.log(clickedMessage)
 
+    // console.log('CURRENT MESSAGE THREAD',currentMessages)
     // need to filter thru allMessages to find this conversation
     let currentMessages = []
     allMessages.filter((message) => { 
         message.dmId === clickedMessage.id && currentMessages.push(message)
     })
-    console.log('CURRENT MESSAGE THREAD',currentMessages)
 
     // const [ allMessages, setAllMessages ] = useState([])
     const [ message, setMessage ] = useState( { message: '', user: activeUser, dmId: clickedMessage.id } )
     const [ isTyping, setIsTyping ] = useState(false)
-    console.log('ALL MESSAGESSSSSS', allMessages)
+    // console.log('ALL MESSAGESSSSSS', allMessages)
     
     const ref = useRef(null)
 
         if(ref.current){
-            console.log(ref.current.scrollTop)
-            console.log(ref.current.scrollBottom)
+            // console.log(ref.current.scrollTop)
+            // console.log(ref.current.scrollBottom)
             //scroll height is the height of the container 670px
             // scroll top is where top of container starts (scrolls to)
 
@@ -36,7 +36,7 @@ const Message = () => {
     
     useEffect(() => {
         // console.log('MESSAGE', message.message)
-        console.log(message)
+        // console.log(message)
         return() => {
             // setMessage("")
         }
@@ -44,15 +44,15 @@ const Message = () => {
 
     const handleEnter = (e) => {
         // e.preventDefault()
-        console.log(e.timeStamp)
+        // console.log(e.timeStamp)
         if( message === "" ) return
         if(e.key === "Enter") {
-            console.log('sending message')
+            // console.log('sending message')
             setAllMessages([... allMessages, message])
             setMessage("")
             e.target.value = ""
             // console.log(message)
-            console.log('ACTIVE USERRRRRRRRRRRR',activeUser)
+            // console.log('ACTIVE USERRRRRRRRRRRR',activeUser)
             if( currentMessages[currentMessages.length - 1]?.user?.id === activeUser.id ) return //dont speak unless spoken to lol
 
             // for delay feeling
@@ -93,14 +93,6 @@ const Message = () => {
             {/* <hr /> */}
           <main ref={ref}>
 
-            {/* { array.map((element, index) => {
-                return (
-                    <div className="bubble" key={index}>
-                        <p>message {element}</p>
-                    </div>
-                )
-            }) } */}
-
             { currentMessages?.map((message, index) => {
                 return (
                     <div className="bubble" id={message.user === activeUser ? 'self' : 'other' } key={index}>
@@ -111,22 +103,10 @@ const Message = () => {
 
           {/* reply bubbles */}
           { isTyping && 
-              <div className="bubble reply" id='other'>
+              <div className="bubble reply dotsReply" id='other'>
                   <p>...</p>
               </div>
           }
-          
-          {/* <p className="ref">focus on meeeee</p> */}
-          {window.onchange = () => {
-            // oh this fires when whole page changes.. clicked on searching hmmm
-            //   {document?.querySelector('.ref')?.focus()}
-            //   document?.querySelector('.reply')?.focus()
-            console.log('window changing')
-            //   let reply = document?.querySelector('.reply')
-            //   document?.querySelector('.reply')?.scrollIntoView()
-            //   console.log('REPLY TOPPPPPP', reply?.top)
-          }}
-
           </main>
 
           <input 

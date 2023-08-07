@@ -6,7 +6,7 @@ const ProfilePicture = () => {
 
     let { clickedProfile, setCreateTweet, backgroundImg } = useContext(AppContext)
     const navigate = useNavigate()
-    console.log(clickedProfile)
+    // console.log(clickedProfile)
 
     useEffect(() => {
       setCreateTweet(true)

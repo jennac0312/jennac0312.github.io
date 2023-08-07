@@ -9,8 +9,8 @@ import Menu from '../components/Menu'
 const Home = () => {
 
   let { showMenu, activeUser, users } = useContext(AppContext)
-  console.log(showMenu)
-  console.log(activeUser)
+  // console.log(showMenu)
+  // console.log(activeUser)
 
   const [ count, setCount ] = useState(0)
 

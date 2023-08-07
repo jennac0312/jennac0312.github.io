@@ -10,12 +10,11 @@ const DMs = () => {
   let { setClickedMessage, showMenu, setCreateTweet, allMessages } = useContext(AppContext)
   const navigate = useNavigate()
 
-  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   console.log('ALL MESSAGES', allMessages)
   
     //  get all unique conversations
     let dmIds = []
-    allMessages.forEach((message) => dmIds.push(message.dmId))
+    allMessages?.forEach((message) => dmIds.push(message.dmId))
     dmIds = ( Array.from(new Set( dmIds )) )
     console.log(dmIds)
 

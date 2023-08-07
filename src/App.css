@@ -139,6 +139,25 @@ hr{
 }
 
 /* LOADING ------------------------------------------------------------ */
+
+@keyframes zoom {
+  0%{
+    /* zoom: 0%; */
+    /* opacity: 0; */
+    width: 0%;
+  }
+  1%{
+    /* zoom: 1%; */
+  }
+  50%{
+    /* zoom: 50% */
+  }
+  100%{
+    /* zoom: 100%; */
+    width: 400px;
+    transform: rotate(360deg);
+  }
+}
 .loadingPage{
   background-color: black;
   height: 100%;
@@ -149,8 +168,9 @@ hr{
 .loadingPage img{
   /* border: 1px solid white; */
   margin: auto;
-  /* zoom: 15% */
-  width: 100%;
+  /* zoom: 15%; */
+  /* width: 100%; */
+  animation: zoom 2s linear infinite;
 }
 
 /* HEADER --------------------------------------------------------------*/
@@ -372,6 +392,10 @@ main{
 }
 .main *{
   /* flex-shrink: 3; */
+}
+
+.homePage .top .avatar{
+  margin-top: 10px;
 }
 
 .homePage main {
@@ -767,7 +791,7 @@ main{
 
 .storyPage div {
   margin: auto;
-  border: 1px solid lime;
+  /* border: 1px solid lime; */
   /* height: 400px; */
   width: 98%;
   display: flex;
@@ -961,6 +985,10 @@ main{
   justify-content: space-between;
   align-items: center;
 }
+
+.communities .avatar{
+  margin-top: 10px;
+}
 .communities header .right{
   display: flex;
 }
@@ -1012,6 +1040,10 @@ main{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.notificationsPage .avatar{
+  margin-top: 10px;
 }
 
 .notificationsPage header > * {
@@ -1083,7 +1115,7 @@ main{
   width: 35px;
   border-radius: 50%;
   /* position: absolute; */
-  margin: 5px 0 0 5px;
+  margin: 10px 0 0 5px;
 }
 
 .dmPage .gear {
@@ -1108,7 +1140,7 @@ main{
   color: lightblue;
   align-self: center;
   /* border: 1px solid lime; */
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -1162,10 +1194,10 @@ main{
   /* border: 1px solid lime; */
   width: 370px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 90px;
 }
 .noDms p.grey {
-  margin-bottom: 280px;
+  margin-bottom: 285px;
 }
 .noDms .gif{
   filter: invert(1);
@@ -1254,6 +1286,23 @@ main{
   text-align: center;
   color: lightblue;
   margin: 10px;
+  /* border: none; */
+  /* outline: transparent; */
+}
+
+@keyframes wiggle {
+  0%{
+    transform: rotateY(-30deg) rotateX(30deg);
+    width: 16px;
+  }
+  100%{
+    transform: rotateY(30deg) rotateX(-30deg);
+  }
+}
+
+.dotsReply p{
+  border: 1px solid red;
+  animation: wiggle 2s infinite;
 }
 .ref{
   /* border: 3px solid lime; */

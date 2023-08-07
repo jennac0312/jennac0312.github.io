@@ -12,10 +12,10 @@ const Profile = ( ) => {
   const [ count, setCount ] = useState(0)
   const navigate = useNavigate()
 
-  console.log('PROFILE RENDERER: ', profileRender)
+  // console.log('PROFILE RENDERER: ', profileRender)
 
   const handleClick = () => {
-    console.log('RETURN TO:', profileRender)
+    // console.log('RETURN TO:', profileRender)
     navigate(profileRender)
   }
 

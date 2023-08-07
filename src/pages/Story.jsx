@@ -9,13 +9,13 @@ const Story = () => {
 
     useEffect(() => {
       setCreateTweet(true)
-      console.log('countdown 5 secs')
+      // console.log('countdown 5 secs')
       setTimeout(() => {
         navigate('/search')
       }, 5000);
 
       return() => {
-        console.log('timeout cleared')
+        // console.log('timeout cleared')
         clearTimeout()
         setCreateTweet(false)
       }
